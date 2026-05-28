@@ -47,12 +47,12 @@ gantt
     title Cronograma General del Proyecto - PLADDES UNSAAC
     dateFormat  YYYY-MM-DD
     section Entregables
-    Entregable 1 (Hito Unidad I)           :active, e1, 2026-05-01, 2026-05-28
+    Entregable 1 - Hito Unidad I           :active, e1, 2026-05-01, 2026-05-28
     section Sprints
-    Sprint 1: Arquitectura y Catálogo      : s1, 2026-05-29, 2026-06-16
-    Sprint 2: Core de Trámites y Archivos  : s2, 2026-06-17, 2026-07-03
-    Sprint 3: Trazabilidad y Pagos        : s3, 2026-07-04, 2026-07-21
-    Sprint 4: Panel, Reportes y Cierre     : s4, 2026-07-22, 2026-08-05
+    Sprint 1 - Arquitectura y Catalogo     : s1, 2026-05-29, 2026-06-16
+    Sprint 2 - Core de Tramites y Archivos : s2, 2026-06-17, 2026-07-03
+    Sprint 3 - Trazabilidad y Pagos        : s3, 2026-07-04, 2026-07-21
+    Sprint 4 - Panel Reportes y Cierre     : s4, 2026-07-22, 2026-08-05
 ```
 
 ### 🎯 Desglose de Sprints
