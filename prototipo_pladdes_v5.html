@@ -426,26 +426,30 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label class="form-label">Nro. Documento / DNI *</label>
-                                    <input type="text" class="form-control" id="input-dni" placeholder="Ingrese su DNI">
+                                    <input type="text" class="form-control" id="input-dni" placeholder="Ej: 71527700" maxlength="8" autocomplete="off">
+                                    <div class="mt-1 fw-600" id="val-dni" style="font-size:.74rem;"></div>
                                 </div>
                                 <div class="col-md-4" id="col-codigo" style="display:none;">
                                     <label class="form-label">Código Universitario *</label>
-                                    <input type="text" class="form-control" id="input-codigo-univ" placeholder="Ej: 182930">
+                                    <input type="text" class="form-control" id="input-codigo-univ" placeholder="Ej: 182930" maxlength="6" autocomplete="off">
+                                    <div class="mt-1 fw-600" id="val-codigo-univ" style="font-size:.74rem;"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Apellidos y Nombres *</label>
                                     <input type="text" class="form-control" id="input-nombres" placeholder="Tal como figura en su DNI">
+                                    <div class="mt-1 fw-600" id="val-nombres" style="font-size:.74rem;"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Correo Electrónico *</label>
                                     <input type="email" class="form-control" id="input-correo" placeholder="correo@ejemplo.com">
-                                    <div class="mt-1" style="font-size:.72rem;color:#10b981;font-weight:600;">
+                                    <div class="mt-1 fw-600" id="val-correo" style="font-size:.74rem;">
                                         <i class="fas fa-envelope-circle-check me-1"></i>Recibirás confirmación automática a este correo.
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Celular / WhatsApp *</label>
-                                    <input type="tel" class="form-control" id="input-tel" placeholder="999 999 999">
+                                    <input type="tel" class="form-control" id="input-tel" placeholder="999 999 999" maxlength="9">
+                                    <div class="mt-1 fw-600" id="val-tel" style="font-size:.74rem;"></div>
                                 </div>
                                 <div class="col-md-6" id="col-dependencia">
                                     <label class="form-label" id="lbl-dep">Facultad / Dependencia</label>
@@ -459,6 +463,7 @@
                                         <option value="DIGA">DIGA</option>
                                         <option value="UTH">UTH</option>
                                     </select>
+                                    <div class="mt-1 fw-600" id="val-dep" style="font-size:.74rem;"></div>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-end mt-5">
@@ -544,7 +549,7 @@
                                         </span>
                                         <input type="text" class="form-control" id="input-pago" placeholder="Ej: 2026-0001234" style="border-left:0;border-radius:0 12px 12px 0;">
                                     </div>
-                                    <div class="mt-1" style="font-size:.72rem;color:#6b7280;">La clave se genera en Caja Central UNSAAC o pagos.unsaac.edu.pe.</div>
+                                    <div class="mt-1 fw-600" id="val-pago" style="font-size:.74rem;color:#6b7280;">La clave se genera en Caja Central UNSAAC o pagos.unsaac.edu.pe.</div>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label fw-700">Aclare su Petición <span class="text-muted fw-400">(Opcional)</span></label>
@@ -1161,7 +1166,211 @@ document.addEventListener('DOMContentLoaded', () => {
     const ta = document.getElementById('textarea-obs');
     const cc = document.getElementById('char-cnt');
     if (ta && cc) ta.addEventListener('input', () => cc.textContent = `${ta.value.length} / 180 caracteres`);
+
+    // Listeners para validaciones en tiempo real (OE2)
+    const inpDni = document.getElementById('input-dni');
+    if (inpDni) inpDni.addEventListener('input', () => validarDNI());
+
+    const inpCod = document.getElementById('input-codigo-univ');
+    if (inpCod) inpCod.addEventListener('input', () => validarCodigoUniv());
+
+    const inpNom = document.getElementById('input-nombres');
+    if (inpNom) inpNom.addEventListener('input', () => validarNombres());
+
+    const inpMail = document.getElementById('input-correo');
+    if (inpMail) inpMail.addEventListener('input', () => validarCorreo());
+
+    const inpTel = document.getElementById('input-tel');
+    if (inpTel) inpTel.addEventListener('input', () => validarTelefono());
+
+    const inpPago = document.getElementById('input-pago');
+    if (inpPago) inpPago.addEventListener('input', () => validarClavePago());
 });
+
+// ════════════════════════════════════════════════════════════════
+// VALIDACIONES EN TIEMPO REAL (OE2)
+// ════════════════════════════════════════════════════════════════
+function setValidationUI(inputEl, helperEl, isValid, msg) {
+    if (!inputEl) return;
+    if (isValid === true) {
+        inputEl.style.borderColor = '#10b981';
+        inputEl.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.15)';
+        if (helperEl) {
+            helperEl.style.color = '#10b981';
+            helperEl.innerHTML = `<i class="fas fa-check-circle me-1"></i>${msg}`;
+        }
+    } else if (isValid === false) {
+        inputEl.style.borderColor = '#dc2626';
+        inputEl.style.boxShadow = '0 0 0 3px rgba(220, 38, 38, 0.15)';
+        if (helperEl) {
+            helperEl.style.color = '#dc2626';
+            helperEl.innerHTML = `<i class="fas fa-exclamation-circle me-1"></i>${msg}`;
+        }
+    } else {
+        inputEl.style.borderColor = '#e2e8f0';
+        inputEl.style.boxShadow = 'none';
+        if (helperEl) {
+            helperEl.style.color = '#6b7280';
+            helperEl.innerHTML = msg || '';
+        }
+    }
+}
+
+function validarDNI(silencioso = false) {
+    const el = document.getElementById('input-dni');
+    const hl = document.getElementById('val-dni');
+    if (!el) return true;
+
+    let val = el.value.replace(/\D/g, '');
+    if (val.length > 8) val = val.substring(0, 8);
+    if (el.value !== val) el.value = val;
+
+    if (val.length === 0) {
+        if (!silencioso) setValidationUI(el, hl, false, 'El DNI es obligatorio (exactamente 8 dígitos numéricos).');
+        return false;
+    }
+    if (val.length < 8) {
+        if (!silencioso) setValidationUI(el, hl, false, `El DNI debe tener 8 dígitos (faltan ${8 - val.length} dígitos).`);
+        return false;
+    }
+    setValidationUI(el, hl, true, 'DNI válido (8 dígitos).');
+    return true;
+}
+
+function validarCodigoUniv(silencioso = false) {
+    const col = document.getElementById('col-codigo');
+    const el = document.getElementById('input-codigo-univ');
+    const hl = document.getElementById('val-codigo-univ');
+    if (!col || col.style.display === 'none' || !el) return true;
+
+    let val = el.value.replace(/\D/g, '');
+    if (val.length > 6) val = val.substring(0, 6);
+    if (el.value !== val) el.value = val;
+
+    if (val.length === 0) {
+        if (!silencioso) setValidationUI(el, hl, false, 'El código universitario es obligatorio (6 dígitos).');
+        return false;
+    }
+    if (val.length < 6) {
+        if (!silencioso) setValidationUI(el, hl, false, `Código incompleto (ingresados ${val.length}/6 dígitos).`);
+        return false;
+    }
+    setValidationUI(el, hl, true, 'Código universitario válido (6 dígitos).');
+    return true;
+}
+
+function validarNombres(silencioso = false) {
+    const el = document.getElementById('input-nombres');
+    const hl = document.getElementById('val-nombres');
+    if (!el) return true;
+
+    const val = el.value.trim();
+    if (val.length === 0) {
+        if (!silencioso) setValidationUI(el, hl, false, 'Apellidos y nombres obligatorios.');
+        return false;
+    }
+    if (val.length < 5) {
+        if (!silencioso) setValidationUI(el, hl, false, 'Ingrese su nombre completo (mínimo 5 caracteres).');
+        return false;
+    }
+    setValidationUI(el, hl, true, 'Apellidos y nombres válidos.');
+    return true;
+}
+
+function validarCorreo(silencioso = false) {
+    const el = document.getElementById('input-correo');
+    const hl = document.getElementById('val-correo');
+    if (!el) return true;
+
+    const val = el.value.trim();
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (val.length === 0) {
+        if (!silencioso) setValidationUI(el, hl, false, 'Correo electrónico obligatorio.');
+        return false;
+    }
+    if (!regex.test(val)) {
+        if (!silencioso) setValidationUI(el, hl, false, 'Formato de correo inválido (ej: usuario@unsaac.edu.pe).');
+        return false;
+    }
+    setValidationUI(el, hl, true, 'Correo válido. Recibirás notificaciones aquí.');
+    return true;
+}
+
+function validarTelefono(silencioso = false) {
+    const el = document.getElementById('input-tel');
+    const hl = document.getElementById('val-tel');
+    if (!el) return true;
+
+    let val = el.value.replace(/\D/g, '');
+    if (val.length > 9) val = val.substring(0, 9);
+    if (el.value !== val) el.value = val;
+
+    if (val.length === 0) {
+        if (!silencioso) setValidationUI(el, hl, false, 'El celular es obligatorio (9 dígitos).');
+        return false;
+    }
+    if (!val.startsWith('9')) {
+        if (!silencioso) setValidationUI(el, hl, false, 'El número celular debe iniciar con 9.');
+        return false;
+    }
+    if (val.length < 9) {
+        if (!silencioso) setValidationUI(el, hl, false, `Número incompleto (ingresados ${val.length}/9 dígitos).`);
+        return false;
+    }
+    setValidationUI(el, hl, true, 'Número de celular válido (9 dígitos).');
+    return true;
+}
+
+function validarClavePago(silencioso = false) {
+    const el = document.getElementById('input-pago');
+    const hl = document.getElementById('val-pago');
+    if (!el) return true;
+
+    const val = el.value.trim();
+    const esGratuito = tramiteSelObj && tramiteSelObj.costo.toLowerCase().includes('gratuito');
+
+    if (esGratuito) {
+        setValidationUI(el, hl, true, 'Trámite gratuito: no requiere voucher de pago.');
+        return true;
+    }
+
+    if (val.length === 0) {
+        if (!silencioso) setValidationUI(el, hl, false, 'Clave de pago / voucher obligatorio para este trámite.');
+        return false;
+    }
+    if (val.length < 6) {
+        if (!silencioso) setValidationUI(el, hl, false, 'Formato de clave inválido (Ej: 2026-0001234).');
+        return false;
+    }
+    setValidationUI(el, hl, true, 'Clave de pago validada.');
+    return true;
+}
+
+function validarPaso1() {
+    const okDNI  = validarDNI();
+    const okCod  = validarCodigoUniv();
+    const okNom  = validarNombres();
+    const okMail = validarCorreo();
+    const okTel  = validarTelefono();
+
+    if (!okDNI || !okCod || !okNom || !okMail || !okTel) {
+        mostrarAlertaFlotante('⚠️ Por favor completa los campos resaltados en rojo correctamente.');
+        return false;
+    }
+    return true;
+}
+
+function validarPaso2() {
+    if (!tramiteSelObj) {
+        mostrarAlertaFlotante('⚠️ Debe seleccionar un procedimiento TUPA del catálogo para continuar.');
+        return false;
+    }
+    return true;
+}
+
+function validarPaso3() {
+    return validarClavePago();
+}
 
 // ════════════════════════════════════════════════════════════════
 // MODAL DE VISOR DE REQUISITOS TUPA (SIN CHECKBOXES)
@@ -1709,6 +1918,10 @@ function showSection(nombre) {
 }
 
 function goToStep(n) {
+    if (n === 2 && !validarPaso1()) return;
+    if (n === 3 && !validarPaso2()) return;
+    if (n === 4 && !validarPaso3()) return;
+
     for (let i = 1; i <= 4; i++) {
         document.getElementById(`step-${i}-content`).style.display = 'none';
         document.getElementById(`step-marker-${i}`).classList.remove('active','completed');
@@ -1737,8 +1950,13 @@ function goToStep(n) {
 function onCambiarTipo() { renderProcedimientos(); }
 
 function enviarSolicitud() {
+    if (!validarPaso1() || !validarPaso2() || !validarPaso3()) {
+        mostrarAlertaFlotante('⚠️ Existen errores o datos incompletos en su solicitud.');
+        return;
+    }
+
     if (!document.getElementById('declaracion').checked) {
-        alert('Debes aceptar la declaración jurada antes de enviar tu solicitud.');
+        mostrarAlertaFlotante('⚠️ Debes aceptar la declaración jurada antes de enviar tu solicitud.');
         return;
     }
 
@@ -1747,11 +1965,6 @@ function enviarSolicitud() {
     const mailVal = document.getElementById('input-correo').value.trim();
     const pagoVal = document.getElementById('input-pago').value.trim() || '2026-0099812';
     const depVal  = document.getElementById('sel-dep').value || 'Secretaría General';
-
-    if (!nomVal || !dniVal || !mailVal) {
-        alert('Por favor completa todos los campos requeridos (*)');
-        goToStep(1);
-        return;
     }
 
     const codNum = Math.floor(48000 + Math.random() * 2000);
