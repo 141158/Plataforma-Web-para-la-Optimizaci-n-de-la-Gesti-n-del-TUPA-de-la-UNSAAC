@@ -1,0 +1,31 @@
+{
+  "name": "pladdes-unsaac-backend",
+  "version": "4.0.0",
+  "description": "Plataforma Web para la Optimización de la Gestión del TUPA de la UNSAAC",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "unsaac",
+    "pladdes",
+    "tupa",
+    "postgresql",
+    "express",
+    "node"
+  ],
+  "author": "Equipo de Desarrollo PLADDES UNSAAC",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

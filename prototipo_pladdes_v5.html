@@ -32,13 +32,13 @@
 
         /* Avatar usuario */
         .user-avatar { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.85rem; color:#fff; cursor:pointer; transition:all .2s; }
-        .user-avatar:hover { transform:scale(1.1); }
+        .user-avatar:hover { transform:scale(1.08); }
         .av-estudiante { background:linear-gradient(135deg,#6f1521,#bc2a3c); }
         .av-docente    { background:linear-gradient(135deg,#0284c7,#0ea5e9); }
         .av-admin      { background:linear-gradient(135deg,#7c3aed,#a855f7); }
 
         /* Role badges */
-        .rb { font-size:.65rem; font-weight:700; padding:2px 8px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; display:inline-block; }
+        .rb { font-size:.65rem; font-weight:700; padding:3px 8px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; display:inline-block; }
         .rb-est  { background:#fff1f2; color:var(--unsaac-red); }
         .rb-doc  { background:#e0f2fe; color:#0284c7; }
         .rb-adm  { background:#ede9fe; color:#7c3aed; }
@@ -47,12 +47,13 @@
         /* ── Hero ── */
         .hero-section { background:linear-gradient(135deg,var(--unsaac-red) 0%,#4a0e16 100%); padding:90px 0 140px; color:#fff; position:relative; overflow:hidden; }
         .hero-section::after { content:""; position:absolute; bottom:0; left:0; right:0; height:100px; background:linear-gradient(to top right,var(--bg-light) 50%,transparent 50.5%); }
-        .hero-access-box { background:rgba(255,255,255,.12); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.2); border-radius:16px; padding:.9rem 1.4rem; display:inline-flex; align-items:center; gap:.9rem; }
+        .hero-access-box { background:rgba(255,255,255,.12); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.2); border-radius:16px; padding:.9rem 1.4rem; display:inline-flex; align-items:center; gap:.9rem; cursor:pointer; transition:transform .2s; }
+        .hero-access-box:hover { transform:translateY(-3px); background:rgba(255,255,255,.18); }
 
         /* ── Cards ── */
         .dashboard-section { margin-top:-80px; position:relative; z-index:10; }
         .card-glass { background:#fff; border:1px solid rgba(0,0,0,.05); border-radius:24px; box-shadow:0 20px 40px rgba(0,0,0,.04); transition:transform .3s cubic-bezier(.34,1.56,.64,1); }
-        .card-glass:hover { transform:translateY(-5px); }
+        .card-glass:hover { transform:translateY(-4px); }
 
         /* ── Stepper ── */
         .stepper { display:flex; justify-content:space-between; margin-bottom:3rem; position:relative; padding:0 20px; }
@@ -75,7 +76,7 @@
         .btn-unsaac:hover { background:var(--unsaac-red-dark); transform:translateY(-2px); box-shadow:0 15px 30px rgba(111,21,33,.25); color:#fff; }
 
         /* ── Status ── */
-        .badge-status { padding:6px 14px; border-radius:50px; font-size:.8rem; font-weight:600; }
+        .badge-status { padding:6px 14px; border-radius:50px; font-size:.78rem; font-weight:700; display:inline-block; }
         .st-pend { background:#fff3cd; color:#856404; }
         .st-proc { background:#cce5ff; color:#004085; }
         .st-comp { background:#d4edda; color:#155724; }
@@ -88,12 +89,13 @@
         .tl-dot { position:absolute; left:-1.5rem; top:4px; width:14px; height:14px; border-radius:50%; border:2px solid #e2e8f0; background:#fff; }
         .tl-dot.done   { background:#10b981; border-color:#10b981; }
         .tl-dot.active { background:var(--unsaac-red); border-color:var(--unsaac-red); box-shadow:0 0 0 3px rgba(111,21,33,.15); }
+        .tl-dot.pending { background:#cbd5e1; border-color:#cbd5e1; }
         .tl-lbl { font-size:.8rem; font-weight:700; color:#1e293b; }
         .tl-sub { font-size:.72rem; color:#94a3b8; }
 
         /* ── Docs required ── */
         .docs-req { background:#fffbeb; border:1.5px solid #fcd34d; border-radius:16px; padding:1rem 1.25rem; }
-        .docs-req .doc-item { font-size:.82rem; font-weight:600; color:#78350f; padding:4px 0; border-bottom:1px dashed #fde68a; }
+        .docs-req .doc-item { font-size:.84rem; font-weight:600; color:#78350f; padding:6px 0; border-bottom:1px dashed #fde68a; display:flex; align-items:flex-start; }
         .docs-req .doc-item:last-child { border-bottom:none; }
 
         /* ── Upload area ── */
@@ -103,7 +105,8 @@
         /* ── Procedure list ── */
         .proc-item { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid #f1f5f9; transition:background .15s; padding:.75rem 1rem; }
         .proc-item:hover { background:#fef2f2; }
-        .btn-req-link { font-size:.75rem; font-weight:700; color:var(--unsaac-red); text-decoration:none; white-space:nowrap; }
+        .btn-req-link { font-size:.78rem; font-weight:700; color:var(--unsaac-red); text-decoration:none; white-space:nowrap; }
+        .btn-req-link:hover { text-decoration:underline; }
         .char-cnt { font-size:.75rem; color:#94a3b8; text-align:right; margin-top:4px; }
 
         /* ── Tabs ── */
@@ -125,13 +128,21 @@
         /* ── Modal overlay ── */
         .modal-ov { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:9998; align-items:center; justify-content:center; backdrop-filter:blur(4px); }
         .modal-ov.show { display:flex; }
-        .modal-box { background:#fff; border-radius:24px; padding:2rem; max-width:500px; width:90%; box-shadow:0 40px 80px rgba(0,0,0,.2); }
+        .modal-box { background:#fff; border-radius:24px; padding:2rem; max-width:560px; width:90%; box-shadow:0 40px 80px rgba(0,0,0,.2); max-height:90vh; overflow-y:auto; }
+
+        /* ── Requisitos Item Visual List ── */
+        .req-list-item { background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:10px 14px; margin-bottom:8px; display:flex; align-items:flex-start; gap:10px; font-size:.86rem; color:#1e293b; }
+        .req-icon-dot { color:var(--unsaac-red); margin-top:3px; flex-shrink:0; }
 
         /* ── Login options ── */
         .login-opt { border:2px solid #e2e8f0; border-radius:16px; padding:1rem .75rem; cursor:pointer; transition:all .2s; text-align:center; }
         .login-opt:hover { border-color:var(--unsaac-red); background:#fff5f5; transform:translateY(-2px); }
         .login-opt.selected { border-color:var(--unsaac-red); background:#fff5f5; }
-        .login-icon { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin:0 auto .6rem; }
+        .login-icon { width:48px; height:48px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; margin:0 auto .6rem; }
+
+        /* ── Quick user selector chip ── */
+        .user-quick-chip { border:1px solid #e2e8f0; border-radius:10px; padding:8px 12px; background:#f8fafc; cursor:pointer; transition:all .2s; margin-bottom:6px; font-size:.78rem; display:flex; align-items:center; justify-content:space-between; }
+        .user-quick-chip:hover { border-color:var(--unsaac-red); background:#fff5f5; }
 
         /* ── Filter buttons catalog ── */
         .cat-btn { background:#f1f5f9; border:none; border-radius:10px; padding:6px 14px; font-size:.8rem; font-weight:700; color:#64748b; cursor:pointer; transition:all .2s; }
@@ -146,15 +157,11 @@
         .pago-help { font-size:.75rem; color:var(--unsaac-red); font-weight:700; cursor:pointer; text-decoration:underline dotted; }
 
         /* ── Footer ── */
-        footer { background:#0f172a; color:#94a3b8; padding:80px 0 40px; }
-        .footer-logo { height:60px; filter:brightness(0) invert(1); opacity:.8; margin-bottom:1.5rem; }
+        footer { background:#0f172a; color:#94a3b8; padding:70px 0 40px; }
 
         /* ── Floating alert ── */
         @keyframes slideInRight { from{transform:translateX(100px);opacity:0} to{transform:translateX(0);opacity:1} }
         .float-alert { animation:slideInRight .3s ease; }
-
-        /* ── Pago helper ── */
-        .pago-help { font-size:.75rem; color:var(--unsaac-red); font-weight:700; cursor:pointer; text-decoration:underline dotted; }
     </style>
 </head>
 <body>
@@ -163,17 +170,25 @@
 <div class="banner-mant">
     <i class="fas fa-tools me-2"></i>
     Mantenimiento programado: <strong>Domingo 01/06/2026 de 02:00 a 05:00 hrs.</strong>
-    <a href="#" class="ms-2">Más información</a>
+    <a href="#" class="ms-2" onclick="alert('Durante la ventana de mantenimiento el sistema estará en modo consulta.');return false;">Más información</a>
 </div>
 
 <!-- ── Navbar ── -->
 <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="PLADDES __ Sistema de Trámite_files/logo_unsaacn.png" alt="Logo" style="height:45px;" class="me-2" onerror="this.style.display='none'">
+        <a class="navbar-brand d-flex align-items-center" href="#" onclick="showSection('catalogo'); return false;">
+            <!-- Escudo institucional SVG vectorial UNSAAC -->
+            <svg width="42" height="42" viewBox="0 0 100 100" class="me-2" style="flex-shrink:0;">
+                <circle cx="50" cy="50" r="48" fill="#6f1521" />
+                <circle cx="50" cy="50" r="44" fill="none" stroke="#c5a059" stroke-width="2.5" />
+                <path d="M50 16 L80 32 L80 62 L50 84 L20 62 L20 32 Z" fill="none" stroke="#c5a059" stroke-width="3"/>
+                <circle cx="50" cy="50" r="16" fill="#c5a059" />
+                <path d="M50 38 L50 62 M38 50 L62 50" stroke="#6f1521" stroke-width="4" stroke-linecap="round"/>
+                <text x="50" y="94" font-size="10" font-weight="800" text-anchor="middle" fill="#6f1521">UNSAAC</text>
+            </svg>
             <div class="ms-1">
-                <span class="d-block lh-1 fw-800 text-dark" style="font-size:1.2rem;">UNSAAC</span>
-                <span class="d-block lh-1 mt-1 text-muted" style="font-size:.65rem;font-weight:700;letter-spacing:.1em;">PLATAFORMA TUPA</span>
+                <span class="d-block lh-1 fw-800 text-dark" style="font-size:1.2rem;letter-spacing:-0.03em;">UNSAAC</span>
+                <span class="d-block lh-1 mt-1 text-muted" style="font-size:.65rem;font-weight:700;letter-spacing:.1em;">PLATAFORMA PLADDES TUPA</span>
             </div>
         </a>
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -181,12 +196,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center mb-0">
-                <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="#tramites" onclick="showSection('catalogo')">Procedimientos</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#" onclick="showSection('catalogo'); return false;">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tramites" onclick="showSection('catalogo')">Procedimientos TUPA</a></li>
                 <li class="nav-item d-none" id="nav-admin-item">
-                    <a class="nav-link" href="#tramites" onclick="showSection('admin')">Panel Admin</a>
+                    <a class="nav-link" href="#tramites" onclick="showSection('admin')"><i class="fas fa-shield-alt text-danger me-1"></i>Panel Admin</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Ayuda</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="abrirModalDemoUsers(); return false;"><i class="fas fa-users-cog text-warning me-1"></i>Usuarios BD Demo</a>
+                </li>
 
                 <!-- Sin login -->
                 <li class="nav-item ms-lg-3" id="nav-btn-login">
@@ -197,19 +214,14 @@
                 <!-- Con login -->
                 <li class="nav-item ms-lg-2 d-none" id="nav-user-info">
                     <div class="d-flex align-items-center gap-2">
-                        <!-- Chip de usuario -->
-                        <div class="d-flex align-items-center gap-2"
-                             style="background:#f1f5f9;border-radius:12px;padding:6px 12px;">
+                        <div class="d-flex align-items-center gap-2" style="background:#f1f5f9;border-radius:12px;padding:6px 12px;">
                             <div class="user-avatar" id="nav-avatar"></div>
                             <div>
                                 <div class="fw-700 small" id="nav-nombre" style="line-height:1.2;"></div>
                                 <div id="nav-badge"></div>
                             </div>
                         </div>
-                        <!-- Botón cerrar sesión explícito para todos los roles -->
-                        <button class="btn btn-sm fw-700"
-                                style="border-radius:10px;border:1.5px solid #fca5a5;color:#dc2626;background:#fff5f5;padding:6px 12px;white-space:nowrap;"
-                                onclick="cerrarSesion()" title="Cerrar sesión">
+                        <button class="btn btn-sm fw-700" style="border-radius:10px;border:1.5px solid #fca5a5;color:#dc2626;background:#fff5f5;padding:6px 12px;white-space:nowrap;" onclick="cerrarSesion()" title="Cerrar sesión">
                             <i class="fas fa-sign-out-alt me-1"></i>
                             <span class="d-none d-md-inline">Salir</span>
                         </button>
@@ -225,34 +237,40 @@
     <div class="container">
         <div class="mb-3">
             <span class="badge bg-white bg-opacity-20 text-white fw-700 px-3 py-2" style="border-radius:50px;font-size:.8rem;">
-                Sistema PLADDES v4.0
+                Sistema PLADDES v4.0 · TUPA UNSAAC
             </span>
         </div>
         <h1 class="display-3 mb-3 fw-800">Trámites Digitales<br>UNSAAC</h1>
-        <p class="lead opacity-75 mb-5 mx-auto" style="max-width:580px;">
-            Gestiona tus solicitudes administrativas de forma segura y 100% virtual. Disponible las 24 horas.
+        <p class="lead opacity-75 mb-4 mx-auto" style="max-width:620px;">
+            Consulta los requisitos oficiales del TUPA 2024 y gestiona tus solicitudes administrativas virtuales.
         </p>
-        <!-- Cajas de acceso -->
         <div class="d-flex flex-wrap gap-3 justify-content-center">
-            <div class="hero-access-box">
-                <i class="fas fa-globe" style="font-size:1.3rem;opacity:.85;"></i>
+            <div class="hero-access-box" onclick="iniciarComoPublico()">
+                <i class="fas fa-globe" style="font-size:1.3rem;opacity:.9;"></i>
                 <div class="text-start">
-                    <div class="fw-700" style="font-size:.88rem;">Sin cuenta</div>
-                    <div style="font-size:.75rem;opacity:.75;">Trámites para Público en General</div>
+                    <div class="fw-700" style="font-size:.88rem;">Sin Cuenta</div>
+                    <div style="font-size:.75rem;opacity:.8;">Público en General</div>
                 </div>
             </div>
-            <div class="hero-access-box">
-                <i class="fas fa-user-graduate" style="font-size:1.3rem;opacity:.85;"></i>
+            <div class="hero-access-box" onclick="loginRapidoDirecto('estudiante')">
+                <i class="fas fa-user-graduate" style="font-size:1.3rem;opacity:.9;"></i>
                 <div class="text-start">
-                    <div class="fw-700" style="font-size:.88rem;">Cuenta Estudiante</div>
-                    <div style="font-size:.75rem;opacity:.75;">Trámites académicos + historial</div>
+                    <div class="fw-700" style="font-size:.88rem;">Estudiante UNSAAC</div>
+                    <div style="font-size:.75rem;opacity:.8;">Grados, Títulos y Certificados</div>
                 </div>
             </div>
-            <div class="hero-access-box">
-                <i class="fas fa-chalkboard-teacher" style="font-size:1.3rem;opacity:.85;"></i>
+            <div class="hero-access-box" onclick="loginRapidoDirecto('docente')">
+                <i class="fas fa-chalkboard-teacher" style="font-size:1.3rem;opacity:.9;"></i>
                 <div class="text-start">
-                    <div class="fw-700" style="font-size:.88rem;">Cuenta Docente / Adm.</div>
-                    <div style="font-size:.75rem;opacity:.75;">Trámites de personal + historial</div>
+                    <div class="fw-700" style="font-size:.88rem;">Docente / Personal</div>
+                    <div style="font-size:.75rem;opacity:.8;">Constancias y Licencias</div>
+                </div>
+            </div>
+            <div class="hero-access-box" onclick="loginRapidoDirecto('admin')">
+                <i class="fas fa-shield-alt" style="font-size:1.3rem;opacity:.9;"></i>
+                <div class="text-start">
+                    <div class="fw-700" style="font-size:.88rem;">Dependencia Admin</div>
+                    <div style="font-size:.75rem;opacity:.8;">Bandeja & Gestión</div>
                 </div>
             </div>
         </div>
@@ -267,21 +285,20 @@
         <div class="col-md-5">
             <div class="card card-glass p-4 h-100">
                 <div class="d-flex align-items-center mb-3">
-                    <div class="me-3" style="background:rgba(111,21,33,.06);color:var(--unsaac-red);width:45px;height:45px;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+                    <div class="me-3" style="background:rgba(111,21,33,.06);color:var(--unsaac-red);width:45px;height:45px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">
                         <i class="fas fa-search-location"></i>
                     </div>
                     <h5 class="mb-0 fw-700">Seguimiento de Trámite</h5>
                 </div>
-                <p class="text-muted small mb-3">¿Ya tienes una solicitud? Ingresa tu código para ver el estado actual.</p>
+                <p class="text-muted small mb-3">Ingresa tu código de expediente para verificar la línea de tiempo y estado en tiempo real.</p>
                 <div class="input-group mb-3">
                     <input type="text" id="input-codigo" class="form-control" placeholder="Ej: TR-2026-48945" style="border-radius:12px 0 0 12px;">
                     <button class="btn btn-unsaac" style="border-radius:0 12px 12px 0;box-shadow:none;" onclick="mostrarSeguimiento()">Consultar</button>
                 </div>
                 <div class="ac-pub mb-2">
                     <i class="fas fa-check-circle me-2"></i>
-                    Disponible para <strong>todos</strong>, sin necesidad de iniciar sesión.
+                    Disponible para <strong>todos</strong> sin necesidad de inicio de sesión.
                 </div>
-                <!-- [P3] Línea de tiempo — generada dinámicamente por JS -->
                 <div id="timeline-result" style="display:none;"></div>
             </div>
         </div>
@@ -292,21 +309,21 @@
             <!-- Sin login: invitación -->
             <div class="card card-glass p-4 h-100" id="card-no-login">
                 <div class="d-flex align-items-center mb-3">
-                    <div class="me-3" style="background:rgba(16,185,129,.08);color:#10b981;width:45px;height:45px;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+                    <div class="me-3" style="background:rgba(16,185,129,.08);color:#10b981;width:45px;height:45px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">
                         <i class="fas fa-globe"></i>
                     </div>
                     <h5 class="mb-0 fw-700">Acceso al Sistema</h5>
                 </div>
                 <div class="ac-pub mb-3">
                     <i class="fas fa-check-circle me-2"></i>
-                    <strong>Sin login:</strong> puedes hacer trámites de Público en General directamente.
+                    <strong>Sin login:</strong> puedes realizar trámites de Público en General directamente.
                 </div>
                 <div class="ac-info mb-4">
                     <i class="fas fa-info-circle me-2"></i>
-                    <strong>Con cuenta UNSAAC:</strong> accede a trámites de Estudiante o Docente y consulta tu historial.
+                    <strong>Con cuenta UNSAAC:</strong> accede a trámites institucionales y consulta tus requisitos.
                 </div>
                 <button class="btn btn-unsaac w-100 mb-2" onclick="abrirLogin()">
-                    <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión con cuenta UNSAAC
+                    <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión con Cuenta UNSAAC
                 </button>
                 <button class="btn btn-outline-success w-100 fw-700" style="border-radius:14px;" onclick="iniciarComoPublico()">
                     <i class="fas fa-globe me-2"></i>Continuar sin cuenta (Público)
@@ -316,7 +333,7 @@
             <!-- Con login: mis trámites -->
             <div class="card card-glass p-4 h-100 d-none" id="card-logged-in">
                 <div class="d-flex align-items-center mb-3">
-                    <div class="me-3" style="background:rgba(111,21,33,.06);color:var(--unsaac-red);width:45px;height:45px;border-radius:12px;display:flex;align-items:center;justify-content:center;">
+                    <div class="me-3" style="background:rgba(111,21,33,.06);color:var(--unsaac-red);width:45px;height:45px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">
                         <i class="fas fa-folder-open"></i>
                     </div>
                     <div>
@@ -324,53 +341,19 @@
                         <div id="dash-role-badge"></div>
                     </div>
                 </div>
-                <div id="mis-tramites-lista">
-                    <div class="tr-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div><div class="fw-700 small">Expedición de Grado de Bachiller</div><div class="text-muted" style="font-size:.7rem;">TR-2026-48945 · 20/05/2026</div></div>
-                            <span class="badge-status st-proc" style="font-size:.7rem;padding:4px 10px;">En Revisión</span>
-                        </div>
-                    </div>
-                    <div class="tr-card">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <div><div class="fw-700 small">Certificado de Estudios Semestral</div><div class="text-muted" style="font-size:.7rem;">TR-2026-45231 · 05/04/2026</div></div>
-                            <span class="badge-status st-comp" style="font-size:.7rem;padding:4px 10px;">Completado</span>
-                        </div>
-                    </div>
-                </div>
+                <div id="mis-tramites-lista" style="max-height:220px;overflow-y:auto;"></div>
 
-                <!-- [OBJ 4] Notificaciones -->
                 <div class="mt-3 pt-3 border-top" id="notif-section">
                     <div class="d-flex justify-content-between align-items-center mb-2">
                         <span class="fw-700 small text-muted text-uppercase" style="letter-spacing:.05em;">
                             <i class="fas fa-bell me-1" style="color:var(--unsaac-red);"></i>Notificaciones
                         </span>
-                        <span class="badge rounded-pill" style="background:var(--unsaac-red);color:#fff;font-size:.65rem;">3</span>
+                        <span class="badge rounded-pill" id="notif-count-badge" style="background:var(--unsaac-red);color:#fff;font-size:.65rem;">0</span>
                     </div>
-                    <div class="d-flex gap-2 align-items-start p-2 rounded-3 mb-2" style="background:#eff6ff;border:1px solid #bfdbfe;">
-                        <i class="fas fa-clock mt-1" style="color:#3b82f6;font-size:.75rem;"></i>
-                        <div>
-                            <div class="fw-700" style="font-size:.75rem;">TR-2026-48945 derivado a Secretaría General</div>
-                            <div class="text-muted" style="font-size:.68rem;">21/05/2026 · Plazo: 15 días hábiles</div>
-                        </div>
-                    </div>
-                    <div class="d-flex gap-2 align-items-start p-2 rounded-3 mb-2" style="background:#fff7ed;border:1px solid #fed7aa;">
-                        <i class="fas fa-exclamation-circle mt-1" style="color:#f59e0b;font-size:.75rem;"></i>
-                        <div>
-                            <div class="fw-700" style="font-size:.75rem;">TR-2026-46120 — Requiere subsanación</div>
-                            <div class="text-muted" style="font-size:.68rem;">24/05/2026 · Adjunta la denuncia policial</div>
-                        </div>
-                    </div>
-                    <div class="d-flex gap-2 align-items-start p-2 rounded-3" style="background:#f0fdf4;border:1px solid #bbf7d0;">
-                        <i class="fas fa-check-circle mt-1" style="color:#10b981;font-size:.75rem;"></i>
-                        <div>
-                            <div class="fw-700" style="font-size:.75rem;">TR-2026-45231 — Certificado listo</div>
-                            <div class="text-muted" style="font-size:.68rem;">10/04/2026 · Disponible para descarga</div>
-                        </div>
-                    </div>
+                    <div id="lista-notificaciones" style="max-height:160px;overflow-y:auto;"></div>
                 </div>
                 <button class="btn btn-sm btn-outline-danger fw-700 w-100 mt-3" style="border-radius:10px;" onclick="showSection('nuevo')">
-                    <i class="fas fa-plus me-2"></i>Nuevo Trámite
+                    <i class="fas fa-plus me-2"></i>Registrar Nuevo Trámite
                 </button>
             </div>
         </div>
@@ -391,18 +374,18 @@
         <div class="row mb-4 justify-content-center">
             <div class="col-lg-8">
                 <div class="text-center mb-4">
-                    <h2 class="fw-800">Catálogo de Procedimientos (TUPA)</h2>
-                    <p class="text-muted">Selecciona el trámite que deseas realizar. El sistema te guiará según tu tipo de acceso.</p>
+                    <h2 class="fw-800">Catálogo de Procedimientos (TUPA 2024 / Res. CU-520)</h2>
+                    <p class="text-muted">Revisa los requisitos oficiales, costos y plazos antes de iniciar tu solicitud.</p>
                 </div>
                 <div class="position-relative shadow-sm mb-3" style="border-radius:20px;overflow:hidden;">
-                    <input type="text" id="buscador" class="form-control form-control-lg border-0 ps-4 py-3" placeholder="¿Qué trámite buscas? Ej: Bachiller, Certificado..." style="border-radius:20px;font-size:1rem;" oninput="renderCatalogo()">
+                    <input type="text" id="buscador" class="form-control form-control-lg border-0 ps-4 py-3" placeholder="¿Qué trámite buscas? Ej: Bachiller, Título, Carné, Traslado..." style="border-radius:20px;font-size:1rem;" oninput="renderCatalogo()">
                     <button class="btn btn-unsaac position-absolute end-0 top-0 bottom-0 m-1 px-4" style="border-radius:16px;"><i class="fas fa-search"></i></button>
                 </div>
                 <div class="d-flex gap-2 flex-wrap justify-content-center mb-2">
                     <button class="cat-btn active" id="cf-todos"      onclick="setCatFiltro('todos')">Todos</button>
                     <button class="cat-btn"        id="cf-estudiante" onclick="setCatFiltro('estudiante')"><i class="fas fa-user-graduate me-1"></i>Estudiante</button>
                     <button class="cat-btn"        id="cf-docente"    onclick="setCatFiltro('docente')"><i class="fas fa-chalkboard-teacher me-1"></i>Docente / Adm.</button>
-                    <button class="cat-btn"        id="cf-publico"    onclick="setCatFiltro('publico')"><i class="fas fa-globe me-1"></i>Público en General</button>
+                    <button class="cat-btn"        id="cf-publico"    onclick="setCatFiltro('publico')"><i class="fas fa-globe me-1"></i>Público General</button>
                 </div>
             </div>
         </div>
@@ -417,7 +400,7 @@
                     <div class="px-4 py-3 bg-light border-bottom d-flex justify-content-between align-items-center">
                         <div class="d-flex gap-4">
                             <div class="small"><span class="text-muted fw-600">FECHA:</span> <span class="fw-800" id="fecha-hoy"></span></div>
-                            <div class="small"><span class="text-muted fw-600">SOLICITUD:</span> <span class="fw-800">#<span id="nro-sol">48946</span></span></div>
+                            <div class="small"><span class="text-muted fw-600">PRE-SOLICITUD:</span> <span class="fw-800">#<span id="nro-sol">48946</span></span></div>
                         </div>
                         <span class="badge bg-danger-subtle text-danger px-3 py-2" style="border-radius:8px;font-weight:700;">NUEVO TRÁMITE</span>
                     </div>
@@ -438,43 +421,43 @@
                                 <div class="col-md-4">
                                     <label class="form-label">Tipo de Solicitante</label>
                                     <select class="form-select" id="tipo-doc" onchange="onCambiarTipo()">
-                                        <!-- generado dinámicamente -->
                                     </select>
                                     <div class="mt-1" id="tipo-helper" style="font-size:.72rem;color:#6b7280;"></div>
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="form-label">Nro. Documento / DNI</label>
+                                    <label class="form-label">Nro. Documento / DNI *</label>
                                     <input type="text" class="form-control" id="input-dni" placeholder="Ingrese su DNI">
                                 </div>
                                 <div class="col-md-4" id="col-codigo" style="display:none;">
-                                    <label class="form-label">Código Universitario</label>
+                                    <label class="form-label">Código Universitario *</label>
                                     <input type="text" class="form-control" id="input-codigo-univ" placeholder="Ej: 182930">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Apellidos y Nombres</label>
+                                    <label class="form-label">Apellidos y Nombres *</label>
                                     <input type="text" class="form-control" id="input-nombres" placeholder="Tal como figura en su DNI">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Correo Electrónico</label>
+                                    <label class="form-label">Correo Electrónico *</label>
                                     <input type="email" class="form-control" id="input-correo" placeholder="correo@ejemplo.com">
-                                    <!-- [P5] -->
                                     <div class="mt-1" style="font-size:.72rem;color:#10b981;font-weight:600;">
                                         <i class="fas fa-envelope-circle-check me-1"></i>Recibirás confirmación automática a este correo.
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Celular / WhatsApp</label>
+                                    <label class="form-label">Celular / WhatsApp *</label>
                                     <input type="tel" class="form-control" id="input-tel" placeholder="999 999 999">
                                 </div>
                                 <div class="col-md-6" id="col-dependencia">
                                     <label class="form-label" id="lbl-dep">Facultad / Dependencia</label>
                                     <select class="form-select" id="sel-dep">
-                                        <option>Facultad de Ingeniería Informática y de Sistemas</option>
-                                        <option>Facultad de Derecho</option>
-                                        <option>Facultad de Medicina Humana</option>
-                                        <option>Facultad de Ciencias Administrativas</option>
-                                        <option>Secretaría General</option>
-                                        <option>VRAC</option><option>DIGA</option><option>UTH</option>
+                                        <option value="FIIS">Facultad de Ingeniería Informática y de Sistemas</option>
+                                        <option value="F. Derecho">Facultad de Derecho</option>
+                                        <option value="F. Medicina">Facultad de Medicina Humana</option>
+                                        <option value="F. Adm">Facultad de Ciencias Administrativas</option>
+                                        <option value="Secretaría General">Secretaría General</option>
+                                        <option value="VRAC">VRAC</option>
+                                        <option value="DIGA">DIGA</option>
+                                        <option value="UTH">UTH</option>
                                     </select>
                                 </div>
                             </div>
@@ -488,18 +471,18 @@
                             <h4 class="fw-800 mb-4">2. Datos de la Petición</h4>
                             <div class="bg-light p-4 rounded-4 mb-4">
                                 <div class="mb-4">
-                                    <label class="form-label fw-700">Solicito:</label>
-                                    <input type="text" id="input-asunto" class="form-control form-control-lg" placeholder="Selecciona un trámite de la lista" readonly style="background:#fff;">
+                                    <label class="form-label fw-700">Solicitud Seleccionada:</label>
+                                    <input type="text" id="input-asunto" class="form-control form-control-lg" placeholder="Selecciona un trámite de la lista inferior" readonly style="background:#fff;">
                                 </div>
                                 <div class="card border-0 shadow-sm overflow-hidden" style="border-radius:16px;">
                                     <div class="card-header bg-white py-3 border-bottom d-flex justify-content-between align-items-center">
-                                        <h6 class="text-danger fw-800 mb-0"><i class="fas fa-list-ul me-2"></i>TRÁMITES DISPONIBLES</h6>
+                                        <h6 class="text-danger fw-800 mb-0"><i class="fas fa-list-ul me-2"></i>PROCEDIMIENTOS DISPONIBLES</h6>
                                         <span id="proc-role-badge" class="rb"></span>
                                     </div>
                                     <div class="card-body p-0">
                                         <div class="p-3 bg-light border-bottom">
                                             <div class="d-flex gap-2 align-items-center">
-                                                <label class="form-label fw-700 mb-0 small text-nowrap">Filtrar:</label>
+                                                <label class="form-label fw-700 mb-0 small text-nowrap">Filtrar por Categoría:</label>
                                                 <select class="form-select form-select-sm" id="filtro-cat" onchange="renderProcedimientos()">
                                                     <option value="">TODAS LAS CATEGORÍAS</option>
                                                     <option value="grados">GRADOS Y TÍTULOS</option>
@@ -509,7 +492,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div id="lista-proc" style="max-height:280px;overflow-y:auto;"></div>
+                                        <div id="lista-proc" style="max-height:300px;overflow-y:auto;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -521,12 +504,15 @@
 
                         <!-- Step 3 -->
                         <div id="step-3-content" style="display:none;">
-                            <h4 class="fw-800 mb-4">3. Archivo Digital</h4>
-                            <!-- [P8] Documentos requeridos -->
+                            <h4 class="fw-800 mb-4">3. Archivo Digital y Comprobante</h4>
+                            <!-- Lista visible de requisitos del trámite seleccionado -->
                             <div class="docs-req mb-4">
-                                <div class="d-flex align-items-center mb-2">
-                                    <i class="fas fa-clipboard-list me-2" style="color:#92400e;"></i>
-                                    <span class="fw-800 small" style="color:#92400e;">DOCUMENTOS REQUERIDOS PARA ESTE TRÁMITE</span>
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-file-invoice me-2" style="color:#92400e;font-size:1.1rem;"></i>
+                                        <span class="fw-800 small" style="color:#92400e;">REQUISITOS Y DOCUMENTOS EXIGIDOS SEGÚN EL TUPA</span>
+                                    </div>
+                                    <span class="badge bg-warning text-dark fw-700" id="badge-tupa-code" style="font-size:.7rem;">TUPA</span>
                                 </div>
                                 <div id="lista-docs">
                                     <div class="doc-item"><i class="fas fa-circle-dot me-2" style="font-size:.6rem;"></i>Selecciona primero el trámite en el paso anterior</div>
@@ -534,20 +520,20 @@
                             </div>
                             <div class="row g-4">
                                 <div class="col-12">
-                                    <div class="upload-area text-center py-5" onclick="document.getElementById('file-input').click()">
-                                        <input type="file" id="file-input" hidden multiple>
-                                        <div style="background:#fff1f2;color:var(--unsaac-red);width:64px;height:64px;border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem;">
+                                    <div class="upload-area text-center py-4 px-3" onclick="document.getElementById('file-input').click()">
+                                        <input type="file" id="file-input" hidden multiple onchange="onArchivosCargados(event)">
+                                        <div style="background:#fff1f2;color:var(--unsaac-red);width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin:0 auto 1rem;">
                                             <i class="fas fa-file-upload"></i>
                                         </div>
-                                        <h6 class="fw-800 mb-1">Cargar Documentos Sustentorios</h6>
-                                        <p class="text-muted small mb-0">Adjunte todos los documentos de la lista anterior.</p>
-                                        <p class="mt-3"><span class="badge bg-light text-muted border fw-600">PDF, ZIP, RAR (Máx 50MB total)</span></p>
+                                        <h6 class="fw-800 mb-1">Cargar Archivos Sustentorios</h6>
+                                        <p class="text-muted small mb-0">Haz clic aquí para seleccionar los PDF o imágenes de tus documentos.</p>
+                                        <p class="mt-2 mb-0"><span class="badge bg-light text-muted border fw-600">PDF, ZIP, RAR (Máx 50MB)</span></p>
                                     </div>
+                                    <div id="lista-archivos-cargados" class="mt-3"></div>
                                 </div>
-                                <!-- [P4] Clave de pago -->
                                 <div class="col-12">
                                     <label class="form-label fw-700">
-                                        Clave de Pago
+                                        Clave de Pago / Voucher UNSAAC *
                                         <span class="pago-help ms-2" onclick="document.getElementById('modal-pago').classList.add('show')">
                                             <i class="fas fa-question-circle"></i> ¿Dónde encuentro mi clave de pago?
                                         </span>
@@ -558,11 +544,11 @@
                                         </span>
                                         <input type="text" class="form-control" id="input-pago" placeholder="Ej: 2026-0001234" style="border-left:0;border-radius:0 12px 12px 0;">
                                     </div>
-                                    <div class="mt-1" style="font-size:.72rem;color:#6b7280;">La clave se genera en Caja UNSAAC o en el portal de pagos en línea.</div>
+                                    <div class="mt-1" style="font-size:.72rem;color:#6b7280;">La clave se genera en Caja Central UNSAAC o pagos.unsaac.edu.pe.</div>
                                 </div>
                                 <div class="col-12">
-                                    <label class="form-label fw-700">Aclare su petición <span class="text-muted fw-400">(Opcional)</span></label>
-                                    <textarea class="form-control" id="textarea-obs" rows="3" maxlength="180" placeholder="Información adicional relevante para la oficina receptora..."></textarea>
+                                    <label class="form-label fw-700">Aclare su Petición <span class="text-muted fw-400">(Opcional)</span></label>
+                                    <textarea class="form-control" id="textarea-obs" rows="3" maxlength="180" placeholder="Anotación o detalle relevante para la dependencia receptora..."></textarea>
                                     <div class="char-cnt" id="char-cnt">0 / 180 caracteres</div>
                                 </div>
                             </div>
@@ -578,25 +564,25 @@
                             <div class="alert alert-warning border-0 shadow-sm mb-4 py-3" style="border-radius:16px;">
                                 <div class="d-flex align-items-center">
                                     <i class="fas fa-exclamation-circle fa-lg me-3 text-warning"></i>
-                                    <div class="small fw-600">Verifique que toda la información sea correcta antes de enviar. Esta acción no se puede deshacer.</div>
+                                    <div class="small fw-600">Verifique que toda la información ingresada sea correcta antes de confirmar el envío.</div>
                                 </div>
                             </div>
                             <div class="row g-4">
                                 <div class="col-md-6">
                                     <div class="p-3 rounded-4 bg-light border h-100">
-                                        <h6 class="fw-800 text-muted small text-uppercase mb-3">Información Personal</h6>
+                                        <h6 class="fw-800 text-muted small text-uppercase mb-3">Información del Solicitante</h6>
                                         <div class="mb-2"><small class="text-muted">Tipo:</small><div class="fw-700" id="c-tipo">—</div></div>
                                         <div class="mb-2"><small class="text-muted">Interesado:</small><div class="fw-700" id="c-nombres">—</div></div>
-                                        <div class="mb-2"><small class="text-muted">DNI:</small><div class="fw-700" id="c-dni">—</div></div>
-                                        <div><small class="text-muted">Correo:</small><div class="fw-700" id="c-correo">—</div></div>
+                                        <div class="mb-2"><small class="text-muted">DNI / Documento:</small><div class="fw-700" id="c-dni">—</div></div>
+                                        <div><small class="text-muted">Correo Notificación:</small><div class="fw-700" id="c-correo">—</div></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="p-3 rounded-4 bg-light border h-100">
                                         <h6 class="fw-800 text-muted small text-uppercase mb-3">Detalles del Trámite</h6>
-                                        <div class="mb-2"><small class="text-muted">Solicitud:</small><div class="fw-700" id="c-asunto">—</div></div>
+                                        <div class="mb-2"><small class="text-muted">Procedimiento:</small><div class="fw-700" id="c-asunto">—</div></div>
                                         <div class="mb-2"><small class="text-muted">Clave de Pago:</small><div class="fw-700" id="c-pago">—</div></div>
-                                        <div><small class="text-muted">Adjuntos:</small><div class="fw-700 text-success"><i class="fas fa-check-circle me-1"></i>2 archivos cargados</div></div>
+                                        <div><small class="text-muted">Archivos Adjuntos:</small><div class="fw-700 text-success" id="c-archivos-cnt"><i class="fas fa-check-circle me-1"></i>Documentos adjuntados correctamente</div></div>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -621,58 +607,68 @@
         </div>
     </div>
 
-    <!-- ═══ [P9 + OBJ7] PANEL ADMIN ═══ -->
+    <!-- ═══ PANEL ADMIN ═══ -->
     <div id="tab-admin" class="tab-content">
-
-        <!-- Contadores resumen -->
-        <div class="row g-4 mb-4">
-            <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 display-6 text-warning">12</div><div class="small fw-600 text-muted mt-1">Pendientes de atención</div></div></div>
-            <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 display-6" style="color:#0284c7;">5</div><div class="small fw-600 text-muted mt-1">En revisión</div></div></div>
-            <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 display-6 text-success">38</div><div class="small fw-600 text-muted mt-1">Aprobados este mes</div></div></div>
-            <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 display-6 text-danger">3</div><div class="small fw-600 text-muted mt-1">Observados</div></div></div>
+        <div class="row g-4 mb-4" id="admin-summary-cards">
+            <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 display-6 text-warning" id="cnt-pend">0</div><div class="small fw-600 text-muted mt-1">Pendientes</div></div></div>
+            <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 display-6" style="color:#0284c7;" id="cnt-proc">0</div><div class="small fw-600 text-muted mt-1">En revisión</div></div></div>
+            <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 display-6 text-success" id="cnt-comp">0</div><div class="small fw-600 text-muted mt-1">Aprobados</div></div></div>
+            <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 display-6 text-danger" id="cnt-obs">0</div><div class="small fw-600 text-muted mt-1">Observados</div></div></div>
         </div>
 
-        <!-- Sub-tabs del panel admin -->
         <div class="tab-nav">
             <button class="tab-btn active" id="admin-tab-btn-bandeja"  onclick="showAdminTab('bandeja')"><i class="fas fa-inbox me-1"></i> Bandeja de Expedientes</button>
             <button class="tab-btn"        id="admin-tab-btn-reportes" onclick="showAdminTab('reportes')"><i class="fas fa-chart-bar me-1"></i> Reportes y Estadísticas</button>
         </div>
 
-        <!-- ── Bandeja ── -->
+        <!-- Bandeja -->
         <div id="admin-tab-bandeja" class="tab-content active">
             <div class="card card-glass p-4">
                 <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
-                    <h5 class="fw-800 mb-0">Bandeja de Expedientes</h5>
+                    <h5 class="fw-800 mb-0"><i class="fas fa-inbox text-danger me-2"></i>Bandeja de Expedientes</h5>
                     <div class="d-flex gap-2 flex-wrap">
-                        <select class="form-select form-select-sm" style="width:auto;">
-                            <option>Todas las dependencias</option><option>Secretaría General</option><option>VRAC</option><option>DIGA</option><option>UTH</option>
+                        <select class="form-select form-select-sm" id="admin-filtro-dep" style="width:auto;" onchange="renderBandejaAdmin()">
+                            <option value="todas">Todas las dependencias</option>
+                            <option value="Secretaría General">Secretaría General</option>
+                            <option value="VRAC">VRAC</option>
+                            <option value="DIGA">DIGA</option>
+                            <option value="UTH">UTH</option>
+                            <option value="FIIS">FIIS</option>
                         </select>
-                        <select class="form-select form-select-sm" style="width:auto;">
-                            <option>Todos los estados</option><option>Pendiente</option><option>En Revisión</option><option>Observado</option><option>Completado</option>
+                        <select class="form-select form-select-sm" id="admin-filtro-estado" style="width:auto;" onchange="renderBandejaAdmin()">
+                            <option value="todos">Todos los estados</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="En Revisión">En Revisión</option>
+                            <option value="Observado">Observado</option>
+                            <option value="Completado">Completado</option>
                         </select>
-                        <button class="btn btn-sm btn-outline-danger fw-700"><i class="fas fa-download me-1"></i>Exportar</button>
+                        <button class="btn btn-sm btn-outline-danger fw-700" onclick="simularExporte('Excel')"><i class="fas fa-download me-1"></i>Exportar CSV</button>
                     </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-hover align-middle" style="font-size:.85rem;">
                         <thead class="table-light">
-                            <tr><th class="fw-700">Expediente</th><th class="fw-700">Interesado</th><th class="fw-700">Tipo</th><th class="fw-700">Trámite</th><th class="fw-700">Ingreso</th><th class="fw-700">Estado</th><th class="fw-700">Acciones</th></tr>
+                            <tr>
+                                <th class="fw-700">Expediente</th>
+                                <th class="fw-700">Interesado</th>
+                                <th class="fw-700">Rol</th>
+                                <th class="fw-700">Trámite</th>
+                                <th class="fw-700">Dependencia</th>
+                                <th class="fw-700">Ingreso</th>
+                                <th class="fw-700">Estado</th>
+                                <th class="fw-700">Acciones</th>
+                            </tr>
                         </thead>
-                        <tbody>
-                            <tr><td class="fw-700">TR-2026-48945</td><td>Juan Pérez García</td><td><span class="rb rb-est">Estudiante</span></td><td>Grado de Bachiller</td><td>20/05/2026</td><td><span class="badge-status st-proc">En Revisión</span></td><td><button class="btn btn-sm btn-success fw-700 me-1" style="border-radius:8px;font-size:.75rem;">Aprobar</button><button class="btn btn-sm btn-warning fw-700 me-1" style="border-radius:8px;font-size:.75rem;">Observar</button><button class="btn btn-sm btn-outline-secondary fw-700" style="border-radius:8px;font-size:.75rem;">Derivar</button></td></tr>
-                            <tr><td class="fw-700">TR-2026-48921</td><td>María Quispe Condori</td><td><span class="rb rb-est">Estudiante</span></td><td>Certificado de Estudios</td><td>18/05/2026</td><td><span class="badge-status st-pend">Pendiente</span></td><td><button class="btn btn-sm btn-success fw-700 me-1" style="border-radius:8px;font-size:.75rem;">Aprobar</button><button class="btn btn-sm btn-warning fw-700 me-1" style="border-radius:8px;font-size:.75rem;">Observar</button><button class="btn btn-sm btn-outline-secondary fw-700" style="border-radius:8px;font-size:.75rem;">Derivar</button></td></tr>
-                            <tr><td class="fw-700">TR-2026-48899</td><td>Dr. Luis Mamani</td><td><span class="rb rb-doc">Docente</span></td><td>Constancia de Servicios</td><td>15/05/2026</td><td><span class="badge-status st-obs">Observado</span></td><td><button class="btn btn-sm btn-success fw-700 me-1" style="border-radius:8px;font-size:.75rem;">Aprobar</button><button class="btn btn-sm btn-warning fw-700 me-1" style="border-radius:8px;font-size:.75rem;">Observar</button><button class="btn btn-sm btn-outline-secondary fw-700" style="border-radius:8px;font-size:.75rem;">Derivar</button></td></tr>
-                            <tr><td class="fw-700">TR-2026-48870</td><td>Ana Torres Villanueva</td><td><span class="rb rb-pub">Público</span></td><td>Solicitud Info. Pública</td><td>12/05/2026</td><td><span class="badge-status st-comp">Completado</span></td><td><button class="btn btn-sm btn-success fw-700 me-1" style="border-radius:8px;font-size:.75rem;">Ver</button><button class="btn btn-sm btn-outline-secondary fw-700" style="border-radius:8px;font-size:.75rem;">Archivar</button></td></tr>
+                        <tbody id="tabla-bandeja-body">
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
 
-        <!-- ── [OBJ 7] Reportes y Estadísticas ── -->
+        <!-- Reportes y Estadísticas -->
         <div id="admin-tab-reportes" class="tab-content">
             <div class="row g-4 mb-4">
-                <!-- Selector de período -->
                 <div class="col-12">
                     <div class="card card-glass p-3">
                         <div class="d-flex align-items-center gap-3 flex-wrap">
@@ -681,11 +677,6 @@
                                 <option value="mayo">Mayo 2026</option>
                                 <option value="abril">Abril 2026</option>
                                 <option value="marzo">Marzo 2026</option>
-                            </select>
-                            <select class="form-select form-select-sm" style="width:auto;">
-                                <option>Todas las dependencias</option>
-                                <option>Secretaría General</option>
-                                <option>VRAC</option><option>DIGA</option><option>UTH</option>
                             </select>
                             <div class="ms-auto d-flex gap-2">
                                 <button class="btn btn-sm fw-700" style="border-radius:10px;background:#fff1f2;color:var(--unsaac-red);border:1.5px solid #fca5a5;" onclick="simularExporte('PDF')">
@@ -700,53 +691,37 @@
                 </div>
             </div>
 
-            <!-- KPIs del período -->
             <div class="row g-3 mb-4" id="reporte-kpis">
-                <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 fs-2" style="color:var(--unsaac-red);" id="kpi-total">58</div><div class="small fw-600 text-muted">Total tramitados</div></div></div>
-                <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 fs-2 text-success" id="kpi-comp">38</div><div class="small fw-600 text-muted">Completados</div></div></div>
-                <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 fs-2 text-warning" id="kpi-pend">12</div><div class="small fw-600 text-muted">Pendientes</div></div></div>
-                <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 fs-2" id="kpi-plazo" style="color:#0284c7;">8.3</div><div class="small fw-600 text-muted">Días promedio de atención</div></div></div>
+                <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 fs-2" style="color:var(--unsaac-red);" id="kpi-total">0</div><div class="small fw-600 text-muted">Total tramitados</div></div></div>
+                <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 fs-2 text-success" id="kpi-comp">0</div><div class="small fw-600 text-muted">Completados</div></div></div>
+                <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 fs-2 text-warning" id="kpi-pend">0</div><div class="small fw-600 text-muted">Pendientes</div></div></div>
+                <div class="col-6 col-md-3"><div class="card card-glass p-3 text-center"><div class="fw-800 fs-2" id="kpi-plazo" style="color:#0284c7;">8.3</div><div class="small fw-600 text-muted">Días promedio resolución</div></div></div>
             </div>
 
             <div class="row g-4">
-                <!-- Gráfica por tipo de trámite -->
                 <div class="col-lg-6">
                     <div class="card card-glass p-4 h-100">
                         <h6 class="fw-800 mb-4">Trámites por Tipo</h6>
                         <div id="chart-tipo" class="d-flex flex-column gap-3"></div>
                     </div>
                 </div>
-                <!-- Gráfica por estado -->
                 <div class="col-lg-6">
                     <div class="card card-glass p-4 h-100">
                         <h6 class="fw-800 mb-4">Distribución por Estado</h6>
-                        <!-- Dona SVG simulada -->
                         <div class="text-center mb-3">
-                            <svg viewBox="0 0 120 120" width="160" height="160">
-                                <!-- Completados 65% -->
+                            <svg viewBox="0 0 120 120" width="150" height="150">
                                 <circle cx="60" cy="60" r="45" fill="none" stroke="#e2e8f0" stroke-width="18"/>
-                                <circle cx="60" cy="60" r="45" fill="none" stroke="#10b981" stroke-width="18"
-                                    stroke-dasharray="184 100" stroke-dashoffset="25" stroke-linecap="round"/>
-                                <circle cx="60" cy="60" r="45" fill="none" stroke="#fbbf24" stroke-width="18"
-                                    stroke-dasharray="59 225" stroke-dashoffset="-159" stroke-linecap="round"/>
-                                <circle cx="60" cy="60" r="45" fill="none" stroke="#3b82f6" stroke-width="18"
-                                    stroke-dasharray="30 254" stroke-dashoffset="-218" stroke-linecap="round"/>
-                                <circle cx="60" cy="60" r="45" fill="none" stroke="#f87171" stroke-width="18"
-                                    stroke-dasharray="10 274" stroke-dashoffset="-248" stroke-linecap="round"/>
-                                <text x="60" y="56" text-anchor="middle" font-size="13" font-weight="800" fill="#1e293b" id="dona-centro-num">58</text>
+                                <circle cx="60" cy="60" r="45" fill="none" stroke="#10b981" stroke-width="18" stroke-dasharray="184 100" stroke-dashoffset="25" stroke-linecap="round"/>
+                                <circle cx="60" cy="60" r="45" fill="none" stroke="#fbbf24" stroke-width="18" stroke-dasharray="59 225" stroke-dashoffset="-159" stroke-linecap="round"/>
+                                <circle cx="60" cy="60" r="45" fill="none" stroke="#3b82f6" stroke-width="18" stroke-dasharray="30 254" stroke-dashoffset="-218" stroke-linecap="round"/>
+                                <circle cx="60" cy="60" r="45" fill="none" stroke="#f87171" stroke-width="18" stroke-dasharray="10 274" stroke-dashoffset="-248" stroke-linecap="round"/>
+                                <text x="60" y="56" text-anchor="middle" font-size="13" font-weight="800" fill="#1e293b" id="dona-centro-num">0</text>
                                 <text x="60" y="70" text-anchor="middle" font-size="7" fill="#94a3b8">total</text>
                             </svg>
                         </div>
-                        <div class="d-flex flex-column gap-2" id="chart-estado-leyenda">
-                            <div class="d-flex align-items-center justify-content-between"><div class="d-flex align-items-center gap-2"><div style="width:12px;height:12px;border-radius:3px;background:#10b981;"></div><span class="small fw-600">Completados</span></div><span class="fw-800 small">38 <span class="text-muted fw-400">(65%)</span></span></div>
-                            <div class="d-flex align-items-center justify-content-between"><div class="d-flex align-items-center gap-2"><div style="width:12px;height:12px;border-radius:3px;background:#fbbf24;"></div><span class="small fw-600">Pendientes</span></div><span class="fw-800 small">12 <span class="text-muted fw-400">(21%)</span></span></div>
-                            <div class="d-flex align-items-center justify-content-between"><div class="d-flex align-items-center gap-2"><div style="width:12px;height:12px;border-radius:3px;background:#3b82f6;"></div><span class="small fw-600">En Revisión</span></div><span class="fw-800 small">5 <span class="text-muted fw-400">(9%)</span></span></div>
-                            <div class="d-flex align-items-center justify-content-between"><div class="d-flex align-items-center gap-2"><div style="width:12px;height:12px;border-radius:3px;background:#f87171;"></div><span class="small fw-600">Observados</span></div><span class="fw-800 small">3 <span class="text-muted fw-400">(5%)</span></span></div>
-                        </div>
+                        <div class="d-flex flex-column gap-2" id="chart-estado-leyenda"></div>
                     </div>
                 </div>
-
-                <!-- Trámites por dependencia -->
                 <div class="col-12">
                     <div class="card card-glass p-4">
                         <h6 class="fw-800 mb-4">Trámites por Dependencia</h6>
@@ -764,26 +739,33 @@
     <div class="container">
         <div class="row g-4 align-items-center mb-5">
             <div class="col-md-6 text-center text-md-start">
-                <img src="PLADDES __ Sistema de Trámite_files/logo_unsaacn.png" alt="UNSAAC" class="footer-logo">
-                <p class="small mb-0 opacity-75" style="max-width:400px;">Universidad Nacional de San Antonio Abad del Cusco. Comprometidos con la excelencia académica y la transformación digital.</p>
+                <div class="d-flex align-items-center mb-3">
+                    <svg width="40" height="40" viewBox="0 0 100 100" class="me-2">
+                        <circle cx="50" cy="50" r="48" fill="#ffffff" opacity="0.1" />
+                        <path d="M50 16 L80 32 L80 62 L50 84 L20 62 L20 32 Z" fill="none" stroke="#ffffff" stroke-width="4"/>
+                        <circle cx="50" cy="50" r="16" fill="#c5a059" />
+                    </svg>
+                    <span class="text-white fw-800 fs-4">UNSAAC PLADDES</span>
+                </div>
+                <p class="small mb-0 opacity-75" style="max-width:420px;">Universidad Nacional de San Antonio Abad del Cusco. Escuela Profesional de Ingeniería Informática y de Sistemas.</p>
             </div>
             <div class="col-md-6 text-center text-md-end">
                 <div class="d-flex justify-content-center justify-content-md-end gap-3 mb-3">
-                    <a href="#" class="text-white opacity-50 fs-5"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="text-white opacity-50 fs-5"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-white opacity-50 fs-5"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white opacity-75 fs-5"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white opacity-75 fs-5"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white opacity-75 fs-5"><i class="fab fa-github"></i></a>
                 </div>
                 <p class="small mb-0 opacity-50">&copy; 2026 Plataforma PLADDES - Todos los derechos reservados.</p>
             </div>
         </div>
         <hr class="opacity-10">
-        <div class="text-center pt-3">
-            <p class="small mb-0 opacity-50 fw-600" style="letter-spacing:.1em;font-size:.65rem;">SISTEMA DE GESTIÓN TUPA v4.0</p>
+        <div class="text-center pt-2">
+            <p class="small mb-0 opacity-50 fw-600" style="letter-spacing:.1em;font-size:.65rem;">SISTEMA DE GESTIÓN TUPA v4.0 · RESOLUCIÓN RECTORAL CU-520-2024-UNSAAC</p>
         </div>
     </div>
 </footer>
 
-<!-- [P5] Toast confirmación -->
+<!-- Toast confirmación -->
 <div class="toast-confirm" id="toast-confirm">
     <div class="card border-0 shadow" style="border-radius:20px;overflow:hidden;">
         <div style="background:#10b981;padding:1.25rem 1.5rem;">
@@ -797,12 +779,68 @@
         </div>
         <div class="p-3 bg-white">
             <div class="small text-muted mb-2"><i class="fas fa-envelope me-1 text-success"></i>Confirmación enviada a <strong id="toast-correo">tu correo</strong>.</div>
-            <div class="small text-muted"><i class="fas fa-clock me-1" style="color:#f59e0b;"></i>Plazo: <strong>15 días hábiles</strong> según el TUPA vigente.</div>
+            <div class="small text-muted"><i class="fas fa-clock me-1" style="color:#f59e0b;"></i>Plazo estimado: <strong>15 días hábiles</strong> según el TUPA.</div>
         </div>
     </div>
 </div>
 
-<!-- [P4] Modal clave de pago -->
+<!-- Modal de Visor de Requisitos TUPA -->
+<div class="modal-ov" id="modal-req-inspector">
+    <div class="modal-box">
+        <div class="d-flex justify-content-between align-items-start mb-3">
+            <div>
+                <span class="badge bg-danger-subtle text-danger fw-800 mb-1" id="req-modal-code">CÓDIGO TUPA</span>
+                <h5 class="fw-800 mb-0" id="req-modal-title">Título del Trámite</h5>
+            </div>
+            <button class="btn btn-sm btn-light" onclick="cerrarModalReq()">✕</button>
+        </div>
+
+        <div class="row g-2 mb-3">
+            <div class="col-6 col-md-3">
+                <div class="p-2 rounded-3 bg-light text-center border">
+                    <div class="text-muted" style="font-size:.65rem;font-weight:700;">COSTO TUPA</div>
+                    <div class="fw-800 text-danger" id="req-modal-cost" style="font-size:.88rem;">S/ 0</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="p-2 rounded-3 bg-light text-center border">
+                    <div class="text-muted" style="font-size:.65rem;font-weight:700;">PLAZO ATENCIÓN</div>
+                    <div class="fw-800 text-dark" id="req-modal-time" style="font-size:.88rem;">5 días</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="p-2 rounded-3 bg-light text-center border">
+                    <div class="text-muted" style="font-size:.65rem;font-weight:700;">ROL REQUERIDO</div>
+                    <div class="fw-800" id="req-modal-role" style="font-size:.88rem;">Estudiante</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="p-2 rounded-3 bg-light text-center border">
+                    <div class="text-muted" style="font-size:.65rem;font-weight:700;">DEPENDENCIA</div>
+                    <div class="fw-800 text-primary" id="req-modal-dep" style="font-size:.75rem;line-height:1.2;">Decanato</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3 rounded-4 mb-3" style="background:#fff7ed;border:1px solid #fed7aa;">
+            <div class="fw-700 small text-warning-emphasis mb-1"><i class="fas fa-file-alt me-2"></i>REQUISITOS Y DOCUMENTACIÓN EXIGIDA:</div>
+            <div style="font-size:.74rem;color:#7c2d12;">Asegúrate de adjuntar los siguientes documentos antes de iniciar el trámite:</div>
+        </div>
+
+        <div id="req-modal-checklist" class="mb-4">
+            <!-- Lista visual limpia cargada por JS -->
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
+            <button class="btn btn-light fw-700 text-muted" onclick="cerrarModalReq()">Cerrar</button>
+            <button class="btn btn-unsaac px-4" id="req-modal-btn-start" onclick="iniciarTramiteDirectoDesdeModal()">
+                <i class="fas fa-play me-2"></i>Iniciar Trámite Ahora
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal clave de pago -->
 <div class="modal-ov" id="modal-pago">
     <div class="modal-box">
         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -812,8 +850,8 @@
         <ol class="small" style="line-height:1.8;color:#475569;">
             <li>Dirígete a la <strong>Caja Central de la UNSAAC</strong> o al portal <strong>pagos.unsaac.edu.pe</strong></li>
             <li>Realiza el pago indicando el tipo de trámite y tu código universitario o DNI</li>
-            <li>Recibirás un <strong>voucher</strong> con la clave en formato: <code>AAAA-NNNNNNN</code></li>
-            <li>Ingresa esa clave y adjunta el voucher como PDF</li>
+            <li>Recibirás un <strong>voucher</strong> con la clave en formato: <code>2026-NNNNNNN</code></li>
+            <li>Ingresa esa clave y adjunta el voucher como PDF en el paso 3.</li>
         </ol>
         <div class="alert alert-warning py-2 small mb-0" style="border-radius:12px;">
             <i class="fas fa-exclamation-triangle me-1"></i>El trámite será <strong>observado</strong> si no adjuntas el voucher o la clave es inválida.
@@ -821,22 +859,33 @@
     </div>
 </div>
 
+<!-- Modal Usuarios Demo BD -->
+<div class="modal-ov" id="modal-demo-users">
+    <div class="modal-box">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5 class="fw-800 mb-0"><i class="fas fa-database me-2 text-danger"></i>Usuarios BD Demo Preconfigurados</h5>
+            <button class="btn btn-sm btn-light" onclick="document.getElementById('modal-demo-users').classList.remove('show')">✕</button>
+        </div>
+        <p class="text-muted small mb-3">Haz clic en cualquiera de estos usuarios ya registrados en la base de datos para iniciar sesión instantáneamente con su rol:</p>
+        <div id="lista-usuarios-demo-modal"></div>
+    </div>
+</div>
+
 <!-- Modal Login -->
 <div class="modal-ov" id="modal-login">
-    <div class="modal-box" style="max-width:460px;">
+    <div class="modal-box">
         <div class="d-flex justify-content-between align-items-center mb-1">
             <h5 class="fw-800 mb-0">Iniciar Sesión</h5>
             <button class="btn btn-sm btn-light" onclick="document.getElementById('modal-login').classList.remove('show')">✕</button>
         </div>
-        <p class="text-muted small mb-4">Selecciona tu tipo de acceso. El sistema mostrará solo los trámites correspondientes a tu rol.</p>
+        <p class="text-muted small mb-3">Selecciona tu tipo de acceso o elige un usuario demo con 1 clic:</p>
 
-        <div class="row g-3 mb-4">
+        <div class="row g-3 mb-3">
             <div class="col-4">
                 <div class="login-opt" id="opt-estudiante" onclick="elegirRolLogin('estudiante')">
                     <div class="login-icon av-estudiante"><i class="fas fa-user-graduate"></i></div>
                     <div class="fw-700 small">Estudiante</div>
                     <div style="font-size:.65rem;color:#94a3b8;">UNSAAC</div>
-                    <div class="mt-1"><span class="rb rb-est" style="font-size:.6rem;">Solo trámites de estudiante</span></div>
                 </div>
             </div>
             <div class="col-4">
@@ -844,7 +893,6 @@
                     <div class="login-icon av-docente"><i class="fas fa-chalkboard-teacher"></i></div>
                     <div class="fw-700 small">Docente / Adm.</div>
                     <div style="font-size:.65rem;color:#94a3b8;">UNSAAC</div>
-                    <div class="mt-1"><span class="rb rb-doc" style="font-size:.6rem;">Solo trámites de docente</span></div>
                 </div>
             </div>
             <div class="col-4">
@@ -852,21 +900,26 @@
                     <div class="login-icon av-admin"><i class="fas fa-shield-alt"></i></div>
                     <div class="fw-700 small">Admin</div>
                     <div style="font-size:.65rem;color:#94a3b8;">Dependencia</div>
-                    <div class="mt-1"><span class="rb rb-adm" style="font-size:.6rem;">Panel de gestión</span></div>
                 </div>
             </div>
         </div>
 
+        <div class="mb-2">
+            <label class="form-label">Cargar Usuario Demo Rápido:</label>
+            <select class="form-select form-select-sm" id="sel-user-demo-fast" onchange="cargarCredencialDemo(this.value)">
+            </select>
+        </div>
+
         <div class="mb-3">
-            <label class="form-label">Correo institucional</label>
+            <label class="form-label">Correo Institucional</label>
             <input type="email" class="form-control" id="login-email" placeholder="usuario@unsaac.edu.pe">
         </div>
         <div class="mb-4">
             <label class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="login-pass" placeholder="••••••••">
+            <input type="password" class="form-control" id="login-pass" value="12345678">
         </div>
         <button class="btn btn-unsaac w-100 py-3" onclick="realizarLogin()">
-            <i class="fas fa-sign-in-alt me-2"></i>Ingresar
+            <i class="fas fa-sign-in-alt me-2"></i>Ingresar al Sistema
         </button>
         <hr class="my-3">
         <div class="text-center">
@@ -883,236 +936,311 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 // ════════════════════════════════════════════════════════════════
-// ESTADO GLOBAL
+// PROCEDIMIENTOS TUPA OFICIALES CON CÓDIGOS REALES Y REQUISITOS
 // ════════════════════════════════════════════════════════════════
-let currentUser  = null;            // objeto con datos del usuario
-let userRole     = 'publico';       // 'publico' | 'estudiante' | 'docente' | 'admin'
-let rolSelLogin  = 'estudiante';
-let tramiteSel   = '';
-let docsSel      = [];
-let catFiltro    = 'todos';
 
-// ════════════════════════════════════════════════════════════════
-// BASE DE DATOS DE PROCEDIMIENTOS CON ROLES
-// ════════════════════════════════════════════════════════════════
 const PROCS = [
-    // ── ESTUDIANTE ──────────────────────────────────────────────
-    { id:'e1', nombre:'Expedición de Grado de Bachiller',     rol:'estudiante', cat:'grados',         costo:'S/ 150', plazo:'30 días', docs:['Solicitud dirigida al Decano','Constancia de egresado','Voucher de pago S/ 150','Foto a color 4x4 (2 unidades)','Copia DNI'] },
-    { id:'e2', nombre:'Expedición de Título Profesional',     rol:'estudiante', cat:'grados',         costo:'S/ 250', plazo:'30 días', docs:['Solicitud dirigida al Decano','Grado de Bachiller','Voucher de pago S/ 250','Foto a color 4x4 (2 unidades)','Copia DNI'] },
-    { id:'e3', nombre:'Duplicado de Diploma de Bachiller',    rol:'estudiante', cat:'grados',         costo:'S/ 120', plazo:'20 días', docs:['Solicitud simple al Rector','Denuncia policial (si es robo)','Voucher de pago S/ 120','Copia DNI'] },
-    { id:'e4', nombre:'Certificado de Estudios Semestral',    rol:'estudiante', cat:'certificados',   costo:'S/ 25',  plazo:'5 días',  docs:['Solicitud simple','Voucher de pago S/ 25','Copia DNI'] },
-    { id:'e5', nombre:'Certificado de Estudios Anual',        rol:'estudiante', cat:'certificados',   costo:'S/ 35',  plazo:'5 días',  docs:['Solicitud simple','Voucher de pago S/ 35','Copia DNI'] },
-    { id:'e6', nombre:'Constancia de Matrícula',              rol:'estudiante', cat:'certificados',   costo:'S/ 15',  plazo:'3 días',  docs:['Solicitud simple','Voucher de pago S/ 15','Copia DNI'] },
-    { id:'e7', nombre:'Constancia de Egresado',               rol:'estudiante', cat:'certificados',   costo:'S/ 20',  plazo:'3 días',  docs:['Solicitud simple','Voucher de pago S/ 20','Copia DNI'] },
-    { id:'e8', nombre:'Duplicado de Carné Universitario',     rol:'estudiante', cat:'documentos',     costo:'S/ 15',  plazo:'5 días',  docs:['Solicitud simple','Voucher de pago S/ 15','Denuncia policial (si es robo)','Copia DNI'] },
-    { id:'e9', nombre:'Rectificación de Datos Personales',    rol:'estudiante', cat:'documentos',     costo:'S/ 20',  plazo:'10 días', docs:['Solicitud al Decano','Partida de nacimiento original','Copia DNI','Voucher de pago S/ 20'] },
-    // ── DOCENTE / ADMINISTRATIVO ─────────────────────────────────
-    { id:'d1', nombre:'Constancia de Servicios Docentes',     rol:'docente',    cat:'certificados',   costo:'S/ 30',  plazo:'5 días',  docs:['Solicitud simple','Voucher de pago S/ 30','Copia DNI'] },
-    { id:'d2', nombre:'Licencia sin Goce de Haber',           rol:'docente',    cat:'administrativos',costo:'S/ 0',   plazo:'15 días', docs:['Solicitud al Rector','Informe del Decano','Copia DNI','Resolución de Consejo de Facultad'] },
-    { id:'d3', nombre:'Reconocimiento de Tiempo de Servicios',rol:'docente',    cat:'administrativos',costo:'S/ 50',  plazo:'20 días', docs:['Solicitud simple','Copia de contratos anteriores','Voucher de pago S/ 50','Copia DNI'] },
-    { id:'d4', nombre:'Certificado de Haber Percibido Haberes',rol:'docente',   cat:'certificados',   costo:'S/ 25',  plazo:'5 días',  docs:['Solicitud simple','Voucher de pago S/ 25','Copia DNI'] },
-    { id:'d5', nombre:'Cambio de Categoría Docente',          rol:'docente',    cat:'administrativos',costo:'S/ 0',   plazo:'30 días', docs:['Solicitud al Rector','Hoja de vida actualizada','Grados y títulos (copias autenticadas)','Resoluciones de méritos'] },
-    { id:'d6', nombre:'Licencia por Estudios de Postgrado',   rol:'docente',    cat:'administrativos',costo:'S/ 0',   plazo:'30 días', docs:['Solicitud al Rector','Constancia de admisión al postgrado','Resolución del Consejo de Facultad'] },
-    // ── PÚBLICO EN GENERAL ───────────────────────────────────────
-    { id:'p1', nombre:'Admisión de Víctimas de Terrorismo',   rol:'publico',    cat:'administrativos',costo:'S/ 0',   plazo:'30 días', docs:['Solicitud al Rector','DNI del solicitante','Resolución judicial o policial'] },
-    { id:'p2', nombre:'Solicitud de Información Pública',     rol:'publico',    cat:'administrativos',costo:'S/ 0',   plazo:'7 días',  docs:['Formulario de solicitud de acceso a información','Copia DNI','Descripción de la información solicitada'] },
-    { id:'p3', nombre:'Solicitud de Convenio Institucional',  rol:'publico',    cat:'administrativos',costo:'S/ 0',   plazo:'30 días', docs:['Carta de presentación institucional','Propuesta de convenio','RUC de la institución','DNI del representante legal'] },
-    { id:'p4', nombre:'Certificación de Documentos UNSAAC',   rol:'publico',    cat:'documentos',     costo:'S/ 10',  plazo:'2 días',  docs:['Documento original a certificar','Voucher de pago S/ 10','DNI del solicitante'] },
-    { id:'p5', nombre:'Inscripción a Cursos de Extensión',    rol:'publico',    cat:'administrativos',costo:'Varía',  plazo:'3 días',  docs:['Ficha de inscripción','Voucher de pago según tarifa','DNI del participante'] },
+    {
+        id: 'PA51003F07',
+        nombre: 'Calificación de Expediente para Optar el Grado de Bachiller y Rotulado de Diploma',
+        rol: 'estudiante', cat: 'grados', costo: 'S/ 415.00', plazo: '20 días hábiles', dep: 'Decanato de la Facultad',
+        baseLegal: 'Art. 44 y Décima Tercera Disposición Ley 30220 / Res. CU-520-2024-UNSAAC',
+        docs: [
+            'Solicitud dirigida al Rector solicitando ser declarado Apto para Grado de Bachiller',
+            'Copia simple de Certificado de Idioma Extranjero y de Computación Básica',
+            'Ficha de seguimiento académico con la conformidad del número de créditos exigidos',
+            'Declaración Jurada de haber realizado homologación o convalidación (si aplica)',
+            'Dos fotografías a color tamaño carné (4cm x 3cm, terno oscuro, camisa blanca, fondo blanco)',
+            'Voucher de pago por derechos de Bachillerato y Rotulado de Diploma (S/ 415.00)'
+        ]
+    },
+    {
+        id: 'PA51008A2B',
+        nombre: 'Calificación de Expediente para Optar al Título Profesional: Sustentación de Tesis',
+        rol: 'estudiante', cat: 'grados', costo: 'S/ 434.00', plazo: '10 días hábiles', dep: 'Decanato de la Facultad',
+        baseLegal: 'Art. 44 y Décima Tercera Disposición Ley 30220 / Res. CU-520-2024-UNSAAC',
+        docs: [
+            'Solicitud dirigida al Rector solicitando calificación de expediente para Título Profesional',
+            'Copia simple del Diploma de Grado Académico de Bachiller',
+            'Declaración Jurada de no tener antecedentes penales ni judiciales',
+            'Constancia de SECIGRA o Práctica Forense Externa (para egresados de Derecho)',
+            'Voucher de pago por derechos de Título Profesional (S/ 434.00)'
+        ]
+    },
+    {
+        id: 'SE51004D55',
+        nombre: 'Certificado de Estudios Semestral',
+        rol: 'estudiante', cat: 'certificados', costo: 'S/ 9.00', plazo: '2 días hábiles', dep: 'Mesa de Partes Facultad',
+        baseLegal: 'Art. 8 y 8.3 Ley 30220 / Estatuto UNSAAC',
+        docs: [
+            'Solicitud dirigida al Rector solicitando expedición de Certificado de Estudios',
+            'Fotografías tamaño carné a color según el número de semestres a certificar',
+            'Ficha de seguimiento académico expedida por el Centro de Cómputo',
+            'Voucher de pago por derechos de certificado (S/ 9.00 por semestre a partir de 1985)'
+        ]
+    },
+    {
+        id: 'SE510018CA',
+        nombre: 'Carné Universitario',
+        rol: 'estudiante', cat: 'documentos', costo: 'S/ 12.60', plazo: '30 días hábiles', dep: 'Dirección de Registros y Servicios Académicos',
+        baseLegal: 'Art. 8 y 8.3 Ley 30220 / Estatuto UNSAAC',
+        docs: [
+            'Tener matrícula vigente en el semestre académico en curso',
+            'Foto digitalizada a color con fondo blanco (format .jpg, 240x288 px, máx 50 KB, sin gafas ni gorra)',
+            'Envío de foto y voucher escaneado al correo institucional servicios.academicos@unsaac.edu.pe',
+            'Voucher de pago por derechos de Carné Universitario (S/ 12.60)'
+        ]
+    },
+    {
+        id: 'SE510018D2',
+        nombre: 'Duplicado de Carné Universitario por Pérdida o Sustracción',
+        rol: 'estudiante', cat: 'documentos', costo: 'S/ 12.60', plazo: '30 días hábiles', dep: 'Dirección de Registros y Servicios Académicos',
+        baseLegal: 'Art. 8 y 8.3 Ley 30220 / Estatuto UNSAAC',
+        docs: [
+            'Solicitud dirigida al Rector solicitando duplicado de carné universitario',
+            'Declaración Jurada por pérdida o sustracción de Carné Universitario',
+            'Voucher de pago por derechos de duplicado de carné (S/ 12.60)'
+        ]
+    },
+    {
+        id: 'PA51001A31',
+        nombre: 'Traslado Interno de Escuela Profesional dentro de la misma Facultad',
+        rol: 'estudiante', cat: 'administrativos', costo: 'S/ 110.00', plazo: '5 días hábiles', dep: 'Decanato de la Facultad',
+        baseLegal: 'Art. 98 y 98.2 Ley 30220 / Reglamento de Admisión',
+        docs: [
+            'Solicitud dirigida al Rector solicitando Traslado Interno',
+            'Ficha de seguimiento académico que acredite haber aprobado mínimo 72 créditos',
+            'Constancia de no estar comprendido en condición de bajo rendimiento académico',
+            'Voucher de pago por derechos de traslado interno (S/ 110.00)'
+        ]
+    },
+    {
+        id: 'PA51007C22',
+        nombre: 'Reserva de Matrícula',
+        rol: 'estudiante', cat: 'administrativos', costo: 'S/ 15.00', plazo: '5 días hábiles', dep: 'Decanato de la Facultad',
+        baseLegal: 'Art. 97, 100 Ley 30220 / Estatuto UNSAAC',
+        docs: [
+            'Solicitud dirigida al Rector indicando los motivos justificados (salud, trabajo, etc.)',
+            'Ficha de seguimiento académico del último semestre matriculado',
+            'Documentos sustentatorios (Certificado Médico, Certificado de Trabajo u otros indubitables)',
+            'Voucher de pago por derechos de trámite de reserva de matrícula (S/ 15.00)'
+        ]
+    },
+    {
+        id: 'PA5100A9C5',
+        nombre: 'Constancia de Buena Conducta',
+        rol: 'estudiante', cat: 'certificados', costo: 'S/ 15.00', plazo: '1 día hábil', dep: 'Decanato de la Facultad',
+        baseLegal: 'Art. 8, 8.3 Ley 30220 / Estatuto UNSAAC',
+        docs: [
+            'Solicitud dirigida al Rector',
+            'Ficha de seguimiento académico acreditando condición de estudiante regular',
+            'Voucher de pago por derechos de trámite (S/ 15.00)'
+        ]
+    },
+    {
+        id: 'SE51004AB9',
+        nombre: 'Constancia de Servicios Docentes',
+        rol: 'docente', cat: 'certificados', costo: 'S/ 30.00', plazo: '5 días hábiles', dep: 'Unidad de Talento Humano - UTH',
+        baseLegal: 'Art. 8 Ley 30220 / Estatuto UNSAAC',
+        docs: [
+            'Solicitud simple dirigida al Rector solicitando constancia de tiempo de servicios',
+            'Copia de Documento Nacional de Identidad (DNI)',
+            'Voucher de pago por derechos de constancia de servicios (S/ 30.00)'
+        ]
+    },
+    {
+        id: 'PA5100A845',
+        nombre: 'Licencia sin Goce de Haber',
+        rol: 'docente', cat: 'administrativos', costo: 'Gratuito', plazo: '15 días hábiles', dep: 'Rectorado / UTH',
+        baseLegal: 'Art. 8, 8.4 Ley 30220 / Ley de Bases de la Carrera Administrativa D.Leg 276',
+        docs: [
+            'Solicitud dirigida al Rector fundamentando la causal de licencia',
+            'Constancia de no ser deudor a la Institución por ningún concepto',
+            'Informe de visto bueno del Decano de la Facultad',
+            'Copia de DNI y Resolución de Consejo de Facultad'
+        ]
+    },
+    {
+        id: 'PA51003723',
+        nombre: 'Reconocimiento de Tiempo de Servicios Docentes',
+        rol: 'docente', cat: 'administrativos', costo: 'S/ 50.00', plazo: '20 días hábiles', dep: 'Unidad de Talento Humano - UTH',
+        baseLegal: 'Ley 30220 / D.Leg 276',
+        docs: [
+            'Solicitud dirigida al Rector',
+            'Copias simples de resoluciones de contratos anteriores o nombramientos',
+            'Voucher de pago por derechos de cuadro de reconocimiento (S/ 50.00)',
+            'Copia de DNI'
+        ]
+    },
+    {
+        id: 'PA51000A49',
+        nombre: 'Admisión de Titulados o Graduados para Segunda Profesión',
+        rol: 'publico', cat: 'administrativos', costo: 'S/ 453.00', plazo: '5 días hábiles', dep: 'Decanato de la Facultad',
+        baseLegal: 'Art. 98 Ley 30220 / Res. CU-520-2024-UNSAAC',
+        docs: [
+            'Solicitud dirigida al Rector solicitando postulación por la Modalidad Graduados o Titulados',
+            'Presentar Documento Nacional de Identidad (DNI) o Pasaporte',
+            'Copia del Diploma de Grado Académico o Título Profesional inscrito en el Registro de SUNEDU',
+            'Copia de Certificados de estudios de Pregrado',
+            'Voucher de pago por derechos de inscripción (S/ 453.00)'
+        ]
+    },
+    {
+        id: 'PA51004007',
+        nombre: 'Traslado Externo de otra Universidad a la UNSAAC',
+        rol: 'publico', cat: 'administrativos', costo: 'S/ 450.00', plazo: '5 días hábiles', dep: 'Vice Rectorado Académico',
+        baseLegal: 'Art. 98, 98.2 Ley 30220 / Reglamento de Admisión UNSAAC',
+        docs: [
+            'Solicitud dirigida al Rector solicitando Traslado Externo a Escuela Profesional',
+            'Documento Nacional de Identidad (DNI)',
+            'Certificado de estudios originales acreditando haber aprobado mínimo 4 semestres o 72 créditos',
+            'Certificado electrónico de no tener antecedentes penales ni judiciales',
+            'Sílabos visados de las asignaturas aprobadas en la universidad de origen',
+            'Constancia de no haber sido separado por sanción disciplinaria o bajo rendimiento',
+            'Voucher de pago por derechos de traslado externo (S/ 450.00)'
+        ]
+    },
+    {
+        id: 'PA5100E965',
+        nombre: 'Solicitud de Acceso a la Información Pública',
+        rol: 'publico', cat: 'administrativos', costo: 'Gratuito', plazo: '7 días hábiles', dep: 'Dirección de Red de Comunicaciones / Secretaría General',
+        baseLegal: 'Ley 27806 de Transparencia y Acceso a la Información Pública',
+        docs: [
+            'Solicitud en Formulario Formato N°1 precisando nombres, DNI, domicilio y teléfono',
+            'Copia simple de DNI',
+            'Expresión concreta y precisa de la información pública solicitada'
+        ]
+    }
 ];
 
-// ════════════════════════════════════════════════════════════════
-// CUENTAS DEMO
-// ════════════════════════════════════════════════════════════════
-const CUENTAS = {
-    estudiante: { nombre:'Ana García Quispe',          email:'a.garcia@unsaac.edu.pe',  dni:'47382910', codigo:'182930', dep:'Facultad de Ingeniería Informática y de Sistemas' },
-    docente:    { nombre:'Dr. Luis Monzón Condori',    email:'l.monzon@unsaac.edu.pe',  dni:'23456789', dep:'FIIS - UNSAAC' },
-    admin:      { nombre:'Admin Secretaría General',   email:'admin.sg@unsaac.edu.pe',  dni:'12345678', dep:'Secretaría General' },
-};
+const BASE_USUARIOS = [
+    { email: 'a.garcia@unsaac.edu.pe', pass:'12345678', rol:'estudiante', nombre:'Ana García Quispe', dni:'47382910', codigo:'182930', dep:'FIIS' },
+    { email: 'j.halanocca@unsaac.edu.pe', pass:'12345678', rol:'estudiante', nombre:'Jhon Kevin Halanocca Surco', dni:'71527700', codigo:'215277', dep:'FIIS' },
+    { email: 'l.monzon@unsaac.edu.pe', pass:'12345678', rol:'docente', nombre:'Dr. Luis Monzón Condori', dni:'23456789', dep:'FIIS - UNSAAC' },
+    { email: 'admin.sg@unsaac.edu.pe', pass:'12345678', rol:'admin', nombre:'Dra. Elena Ramírez', dni:'10293847', dep:'Secretaría General' },
+    { email: 'admin.vrac@unsaac.edu.pe', pass:'12345678', rol:'admin', nombre:'Mg. Carlos Mendoza', dni:'30495821', dep:'VRAC' },
+    { email: 'superadmin@unsaac.edu.pe', pass:'12345678', rol:'admin', nombre:'Administrador Principal PLADDES', dni:'00000000', dep:'DTI UNSAAC' }
+];
 
-// ════════════════════════════════════════════════════════════════
-// INICIALIZACIÓN
-// ════════════════════════════════════════════════════════════════
+const BASE_EXPEDIENTES_INICIALES = [
+    { id:'TR-2026-48945', solicitante:'Ana García Quispe', dni:'47382910', correo:'a.garcia@unsaac.edu.pe', rol:'estudiante', nombre:'Calificación de Expediente para Optar el Grado de Bachiller y Rotulado de Diploma', fecha:'20/05/2026', estado:'En Revisión', stClass:'st-proc', dep:'Secretaría General', plazo:'20 días hábiles', pago:'2026-0094821', obs:'Documentos recepcionados correctamente en Secretaría General.' },
+    { id:'TR-2026-45231', solicitante:'Ana García Quispe', dni:'47382910', correo:'a.garcia@unsaac.edu.pe', rol:'estudiante', nombre:'Certificado de Estudios Semestral', fecha:'05/04/2026', estado:'Completado',  stClass:'st-comp', dep:'FIIS', plazo:'—', pago:'2026-0034102', obs:'Certificado emitido y notificado al correo del estudiante.' },
+    { id:'TR-2026-46120', solicitante:'Jhon Kevin Halanocca Surco', dni:'71527700', correo:'j.halanocca@unsaac.edu.pe', rol:'estudiante', nombre:'Duplicado de Carné Universitario por Pérdida o Sustracción', fecha:'10/05/2026', estado:'Observado', stClass:'st-obs', dep:'DIGA', plazo:'30 días hábiles', pago:'2026-0044129', obs:'Adjunte la denuncia policial emitida por la PNP por pérdida de carné.' },
+    { id:'TR-2026-48921', solicitante:'María Quispe Condori', dni:'48920192', correo:'m.quispe@gmail.com', rol:'estudiante', nombre:'Reserva de Matrícula', fecha:'18/05/2026', estado:'Pendiente', stClass:'st-pend', dep:'FIIS', plazo:'5 días hábiles', pago:'2026-0055102', obs:'En cola de atención.' },
+    { id:'TR-2026-48899', solicitante:'Dr. Luis Monzón Condori', dni:'23456789', correo:'l.monzon@unsaac.edu.pe', rol:'docente', nombre:'Constancia de Servicios Docentes', fecha:'15/05/2026', estado:'Observado', stClass:'st-obs', dep:'UTH', plazo:'5 días hábiles', pago:'2026-0012049', obs:'Voucher sin firma digital de Caja.' },
+    { id:'TR-2026-48870', solicitante:'Pedro Torres Villanueva', dni:'10293844', correo:'p.torres@gmail.com', rol:'publico', nombre:'Solicitud de Acceso a la Información Pública', fecha:'12/05/2026', estado:'Completado', stClass:'st-comp', dep:'Secretaría General', plazo:'—', pago:'Gratuito', obs:'Información enviada en formato PDF.' }
+];
+
+let currentUser  = null;
+let userRole     = 'publico';
+let rolSelLogin  = 'estudiante';
+let tramiteSelObj = null;
+let catFiltro    = 'todos';
+let archivosSubidos = [];
+
+function obtenerExpedientesDB() {
+    const data = localStorage.getItem('pladdes_expedientes');
+    return data ? JSON.parse(data) : BASE_EXPEDIENTES_INICIALES;
+}
+
+function guardarExpedientesDB(list) {
+    localStorage.setItem('pladdes_expedientes', JSON.stringify(list));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Fecha
+    if (!localStorage.getItem('pladdes_expedientes')) {
+        guardarExpedientesDB(BASE_EXPEDIENTES_INICIALES);
+    }
     const hoy = new Date();
     document.getElementById('fecha-hoy').textContent = hoy.toLocaleDateString('es-PE', {day:'2-digit',month:'2-digit',year:'numeric'});
 
-    // Catálogo inicial
+    poblarModalUsuariosDemo();
     renderCatalogo();
-
-    // Iniciar sin login
     aplicarEstadoPublico();
 
-    // Contador chars
     const ta = document.getElementById('textarea-obs');
     const cc = document.getElementById('char-cnt');
     if (ta && cc) ta.addEventListener('input', () => cc.textContent = `${ta.value.length} / 180 caracteres`);
 });
 
 // ════════════════════════════════════════════════════════════════
-// ESTADO PÚBLICO (sin login)
+// MODAL DE VISOR DE REQUISITOS TUPA (SIN CHECKBOXES)
 // ════════════════════════════════════════════════════════════════
-function aplicarEstadoPublico() {
-    userRole    = 'publico';
-    currentUser = null;
+let procedimientoActualInspector = null;
 
-    // Navbar
-    document.getElementById('nav-btn-login').classList.remove('d-none');
-    document.getElementById('nav-user-info').classList.add('d-none');
-    document.getElementById('nav-admin-item').classList.add('d-none');
-    document.getElementById('tab-btn-admin').classList.add('d-none');
+function abrirInspectorRequisitos(idProc) {
+    const p = PROCS.find(x => x.id === idProc);
+    if (!p) return;
 
-    // Cards
-    document.getElementById('card-no-login').classList.remove('d-none');
-    document.getElementById('card-logged-in').classList.add('d-none');
+    procedimientoActualInspector = p;
 
-    // Step 1
-    actualizarStep1();
-    renderProcedimientos();
+    document.getElementById('req-modal-code').textContent  = `CÓDIGO TUPA: ${p.id}`;
+    document.getElementById('req-modal-title').textContent = p.nombre;
+    document.getElementById('req-modal-cost').textContent  = p.costo;
+    document.getElementById('req-modal-time').textContent  = p.plazo;
+    document.getElementById('req-modal-role').textContent  = p.rol.toUpperCase();
+    document.getElementById('req-modal-dep').textContent   = p.dep;
+
+    const checklistContainer = document.getElementById('req-modal-checklist');
+    checklistContainer.innerHTML = p.docs.map((doc, idx) => `
+        <div class="req-list-item">
+            <i class="fas fa-file-check req-icon-dot"></i>
+            <div>
+                <strong class="d-block" style="font-size:.82rem;color:#0f172a;">Requisito ${idx + 1}:</strong>
+                <span style="font-size:.8rem;color:#475569;">${doc}</span>
+            </div>
+        </div>
+    `).join('');
+
+    document.getElementById('modal-req-inspector').classList.add('show');
 }
 
-// ════════════════════════════════════════════════════════════════
-// ESTADO CON LOGIN
-// ════════════════════════════════════════════════════════════════
-function aplicarEstadoLogin(rol) {
-    userRole    = rol;
-    currentUser = CUENTAS[rol];
+function cerrarModalReq() {
+    document.getElementById('modal-req-inspector').classList.remove('show');
+}
 
-    // Navbar
-    document.getElementById('nav-btn-login').classList.add('d-none');
-    document.getElementById('nav-user-info').classList.remove('d-none');
+function iniciarTramiteDirectoDesdeModal() {
+    if (!procedimientoActualInspector) return;
+    const p = procedimientoActualInspector;
+    cerrarModalReq();
 
-    const av   = document.getElementById('nav-avatar');
-    const nm   = document.getElementById('nav-nombre');
-    const bg   = document.getElementById('nav-badge');
-    const pri  = currentUser.nombre.split(' ')[0];
-
-    nm.textContent = pri + ' ' + (currentUser.nombre.split(' ')[1] || '');
-
-    const cfgRol = {
-        estudiante: { cls:'av-estudiante', badge:'<span class="rb rb-est">Estudiante</span>', letra: pri[0] },
-        docente:    { cls:'av-docente',    badge:'<span class="rb rb-doc">Docente</span>',    letra: pri[0] },
-        admin:      { cls:'av-admin',      badge:'<span class="rb rb-adm">Admin</span>',      letra:'A' },
-    };
-    const cfg = cfgRol[rol];
-    av.className = 'user-avatar ' + cfg.cls;
-    av.textContent = cfg.letra;
-    bg.innerHTML   = cfg.badge;
-
-    if (rol === 'admin') {
-        document.getElementById('nav-admin-item').classList.remove('d-none');
-        document.getElementById('tab-btn-admin').classList.remove('d-none');
-    } else {
-        document.getElementById('nav-admin-item').classList.add('d-none');
-        document.getElementById('tab-btn-admin').classList.add('d-none');
+    if (userRole !== 'admin' && p.rol !== userRole) {
+        const msgs = {
+            estudiante: 'Este trámite es exclusivo para <strong>Estudiantes UNSAAC</strong>.',
+            docente:    'Este trámite es exclusivo para <strong>Docentes y Personal UNSAAC</strong>.',
+            publico:    'Este trámite requiere <strong>cuenta UNSAAC</strong>.',
+        };
+        mostrarAlertaFlotante(msgs[p.rol] || 'Acceso restringido.');
+        return;
     }
 
-    // Cards
-    document.getElementById('card-no-login').classList.add('d-none');
-    document.getElementById('card-logged-in').classList.remove('d-none');
-
-    const badgeDash = {
-        estudiante:'<span class="rb rb-est">Estudiante UNSAAC</span>',
-        docente:   '<span class="rb rb-doc">Docente / Administrativo</span>',
-        admin:     '<span class="rb rb-adm">Administrador</span>',
-    };
-    document.getElementById('dash-role-badge').innerHTML = badgeDash[rol] || '';
-
-    actualizarStep1();
-    renderProcedimientos();
+    tramiteSelObj = p;
+    document.getElementById('input-asunto').value   = p.nombre;
+    document.getElementById('c-asunto').textContent = p.nombre;
+    actualizarDocsReq();
+    showSection('nuevo');
+    goToStep(1);
 }
 
 // ════════════════════════════════════════════════════════════════
-// STEP 1 — Tipo de solicitante según rol
-// ════════════════════════════════════════════════════════════════
-function actualizarStep1() {
-    const sel    = document.getElementById('tipo-doc');
-    const alerta = document.getElementById('alerta-step1');
-    const colCod = document.getElementById('col-codigo');
-    const hlp    = document.getElementById('tipo-helper');
-    const lblDep = document.getElementById('lbl-dep');
-
-    sel.innerHTML = '';
-    sel.disabled  = false;
-
-    if (userRole === 'publico') {
-        sel.innerHTML = '<option value="publico">Público en General</option>';
-        colCod.style.display = 'none';
-        lblDep.textContent   = 'Institución / Procedencia (opcional)';
-        alerta.className     = 'ac-pub mb-4';
-        alerta.innerHTML     = `<i class="fas fa-globe me-2"></i>
-            Estás como <strong>Público en General</strong>. Solo verás trámites disponibles para esta categoría.
-            <a href="#" class="fw-700 ms-2" style="color:#15803d;" onclick="abrirLogin()">
-                Inicia sesión para más trámites →
-            </a>`;
-        hlp.textContent = 'No necesitas cuenta UNSAAC para realizar trámites públicos.';
-
-    } else if (userRole === 'estudiante') {
-        sel.innerHTML = '<option value="estudiante">Estudiante UNSAAC</option>';
-        sel.disabled  = true;
-        colCod.style.display = '';
-        lblDep.textContent   = 'Facultad';
-        alerta.className     = 'ac-info mb-4';
-        alerta.innerHTML     = `<i class="fas fa-user-graduate me-2"></i>
-            Sesión activa como <strong>Estudiante UNSAAC</strong>. Solo se muestran trámites de estudiante. Tus datos han sido pre-cargados.`;
-        hlp.textContent = 'Tu tipo de solicitante está bloqueado según tu sesión.';
-        // Pre-cargar
-        if (currentUser) {
-            document.getElementById('input-nombres').value       = currentUser.nombre;
-            document.getElementById('input-dni').value           = currentUser.dni;
-            document.getElementById('input-correo').value        = currentUser.email;
-            document.getElementById('input-codigo-univ').value   = currentUser.codigo;
-        }
-
-    } else if (userRole === 'docente') {
-        sel.innerHTML = '<option value="docente">Docente / Cesante / Administrativo</option>';
-        sel.disabled  = true;
-        colCod.style.display = 'none';
-        lblDep.textContent   = 'Dependencia / Área';
-        alerta.className     = 'ac-info mb-4';
-        alerta.innerHTML     = `<i class="fas fa-chalkboard-teacher me-2"></i>
-            Sesión activa como <strong>Docente / Administrativo</strong>. Solo se muestran trámites de tu categoría.`;
-        hlp.textContent = 'Tu tipo de solicitante está bloqueado según tu sesión.';
-        if (currentUser) {
-            document.getElementById('input-nombres').value = currentUser.nombre;
-            document.getElementById('input-dni').value     = currentUser.dni;
-            document.getElementById('input-correo').value  = currentUser.email;
-        }
-
-    } else if (userRole === 'admin') {
-        sel.innerHTML = '<option value="admin">Administrador de Dependencia</option>';
-        sel.disabled  = true;
-        colCod.style.display = 'none';
-        alerta.className     = 'ac-adm mb-4';
-        alerta.innerHTML     = `<i class="fas fa-shield-alt me-2"></i>
-            Sesión activa como <strong>Administrador</strong>.
-            <a href="#" class="fw-700 ms-2" style="color:#7c3aed;" onclick="showSection('admin')">
-                Ir al Panel de Administración →
-            </a>`;
-        hlp.textContent = '';
-    }
-}
-
-// ════════════════════════════════════════════════════════════════
-// CATÁLOGO
+// CATÁLOGO DE PROCEDIMIENTOS TUPA
 // ════════════════════════════════════════════════════════════════
 function renderCatalogo() {
     const busq = (document.getElementById('buscador')?.value || '').toLowerCase();
     let lista = PROCS;
     if (catFiltro !== 'todos') lista = lista.filter(p => p.rol === catFiltro);
-    if (busq) lista = lista.filter(p => p.nombre.toLowerCase().includes(busq));
+    if (busq) lista = lista.filter(p => p.nombre.toLowerCase().includes(busq) || p.id.toLowerCase().includes(busq));
 
     const grid = document.getElementById('catalogo-grid');
     if (!lista.length) {
-        grid.innerHTML = '<div class="col-12 text-center text-muted py-5"><i class="fas fa-search fa-2x mb-3 opacity-50"></i><p>No se encontraron procedimientos.</p></div>';
+        grid.innerHTML = '<div class="col-12 text-center text-muted py-5"><i class="fas fa-search fa-2x mb-3 opacity-50"></i><p>No se encontraron procedimientos en el TUPA.</p></div>';
         return;
     }
 
     const colorMap = {
         estudiante: { bg:'#fff1f2', color:'#e11d48', icon:'fa-graduation-cap', label:'Estudiante',           badge:'rb-est' },
         docente:    { bg:'#f0f9ff', color:'#0284c7', icon:'fa-chalkboard-teacher', label:'Docente / Adm.',   badge:'rb-doc' },
-        publico:    { bg:'#f0fdf4', color:'#16a34a', icon:'fa-globe',          label:'Público en General',   badge:'rb-pub' },
+        publico:    { bg:'#f0fdf4', color:'#16a34a', icon:'fa-globe',          label:'Público General', badge:'rb-pub' },
     };
 
     grid.innerHTML = lista.map(p => {
@@ -1121,20 +1249,28 @@ function renderCatalogo() {
         <div class="col-md-4">
             <div class="card card-glass h-100 p-3">
                 <div class="card-body d-flex flex-column">
-                    <div class="d-flex align-items-start justify-content-between mb-3">
-                        <div style="background:${c.bg};color:${c.color};width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">
+                    <div class="d-flex align-items-start justify-content-between mb-2">
+                        <div style="background:${c.bg};color:${c.color};width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">
                             <i class="fas ${c.icon}"></i>
                         </div>
                         <span class="rb ${c.badge}">${c.label}</span>
                     </div>
-                    <h6 class="fw-700 mb-2" style="font-size:.9rem;">${p.nombre}</h6>
-                    <div class="text-muted small mb-3 flex-grow-1">Plazo: ${p.plazo} &middot; ${p.docs.length} docs. requeridos</div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="badge bg-light text-dark fw-700 px-3 py-2" style="border-radius:8px;">${p.costo}</span>
-                        <a href="#" class="btn btn-link text-danger fw-700 small p-0 text-decoration-none"
-                           onclick="iniciarDesdeCatalogo('${p.id}');return false;">
-                           Iniciar <i class="fas fa-plus ms-1"></i>
-                        </a>
+                    <div class="text-muted fw-700 mb-1" style="font-size:.68rem;">CÓDIGO TUPA: ${p.id}</div>
+                    <h6 class="fw-700 mb-2" style="font-size:.88rem;line-height:1.3;">${p.nombre}</h6>
+                    <div class="text-muted small mb-3 flex-grow-1" style="font-size:.75rem;">
+                        <i class="fas fa-clock me-1 text-secondary"></i>Plazo: ${p.plazo} &middot; 
+                        <i class="fas fa-file-alt me-1 text-secondary"></i>${p.docs.length} requisitos
+                    </div>
+                    <div class="d-flex gap-1 flex-column mt-auto">
+                        <button class="btn btn-sm btn-outline-secondary fw-700 w-100 py-2 mb-1" style="border-radius:10px;font-size:.78rem;" onclick="abrirInspectorRequisitos('${p.id}')">
+                            <i class="fas fa-info-circle me-1 text-primary"></i> Ver Requisitos (${p.docs.length})
+                        </button>
+                        <div class="d-flex justify-content-between align-items-center mt-1">
+                            <span class="badge bg-light text-dark fw-700 px-3 py-2" style="border-radius:8px;">${p.costo}</span>
+                            <button class="btn btn-unsaac btn-sm px-3 py-1 fw-700" style="border-radius:10px;font-size:.78rem;" onclick="abrirInspectorRequisitos('${p.id}')">
+                                Iniciar <i class="fas fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1149,52 +1285,6 @@ function setCatFiltro(tipo) {
     renderCatalogo();
 }
 
-function filtrarCatalogo() { renderCatalogo(); }
-
-function iniciarDesdeCatalogo(id) {
-    const p = PROCS.find(x => x.id === id);
-    if (!p) return;
-
-    // Verificar acceso
-    if (userRole !== 'admin' && p.rol !== userRole) {
-        const msgs = {
-            estudiante: 'Este trámite es exclusivo para <strong>Estudiantes UNSAAC</strong>.',
-            docente:    'Este trámite es exclusivo para <strong>Docentes y Administrativos UNSAAC</strong>.',
-            publico:    'Este trámite requiere <strong>cuenta UNSAAC</strong> para realizarse.',
-        };
-        mostrarAlertaFlotante(msgs[p.rol] || 'Acceso restringido.');
-        return;
-    }
-
-    tramiteSel = p.nombre;
-    docsSel    = p.docs;
-    document.getElementById('input-asunto').value    = p.nombre;
-    document.getElementById('c-asunto').textContent  = p.nombre;
-    actualizarDocsReq();
-    showSection('nuevo');
-    goToStep(1);
-}
-
-function mostrarAlertaFlotante(msg) {
-    const el = document.createElement('div');
-    el.className = 'float-alert';
-    el.style.cssText = 'position:fixed;top:80px;right:20px;z-index:9999;background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.15);padding:1.25rem;border-left:4px solid #6f1521;min-width:300px;';
-    el.innerHTML = `
-        <div class="d-flex justify-content-between align-items-start mb-2">
-            <div class="fw-700 small" style="color:#6f1521;"><i class="fas fa-lock me-2"></i>Acceso Restringido</div>
-            <button class="btn btn-sm btn-light px-2 py-0" onclick="this.parentElement.parentElement.remove()">✕</button>
-        </div>
-        <p class="small text-muted mb-3">${msg} Inicia sesión para acceder.</p>
-        <button class="btn btn-unsaac btn-sm w-100" onclick="abrirLogin();this.closest('[style*=fixed]').remove()">
-            <i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión
-        </button>`;
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 6000);
-}
-
-// ════════════════════════════════════════════════════════════════
-// PROCEDIMIENTOS EN STEP 2 — filtrados por rol
-// ════════════════════════════════════════════════════════════════
 function renderProcedimientos() {
     const lista  = document.getElementById('lista-proc');
     const badge  = document.getElementById('proc-role-badge');
@@ -1205,7 +1295,7 @@ function renderProcedimientos() {
         estudiante: { cls:'rb rb-est', txt:'Solo trámites de Estudiante' },
         docente:    { cls:'rb rb-doc', txt:'Solo trámites de Docente' },
         admin:      { cls:'rb rb-adm', txt:'Todos los trámites (Admin)' },
-        publico:    { cls:'rb rb-pub', txt:'Trámites de Público en General' },
+        publico:    { cls:'rb rb-pub', txt:'Trámites de Público General' },
     };
 
     if (userRole === 'admin') {
@@ -1226,37 +1316,321 @@ function renderProcedimientos() {
 
     lista.innerHTML = filtrados.map(p => `
         <div class="proc-item">
-            <div class="form-check">
-                <input type="radio" name="tramite" class="form-check-input" id="${p.id}"
-                       onchange="seleccionarTramite('${p.nombre.replace(/'/g,"\\'")}', ${JSON.stringify(p.docs)})">
-                <label class="form-check-label fw-600" for="${p.id}" style="font-size:.88rem;">
-                    ${p.nombre}
-                    <span class="text-muted fw-400 ms-2" style="font-size:.75rem;">${p.costo} · ${p.plazo}</span>
+            <div class="form-check me-2">
+                <input type="radio" name="tramite" class="form-check-input" id="rad-${p.id}"
+                       onchange="seleccionarTramiteId('${p.id}')">
+                <label class="form-check-label fw-600" for="rad-${p.id}" style="font-size:.85rem;">
+                    <span class="text-danger fw-700">[${p.id}]</span> ${p.nombre}
+                    <span class="text-muted fw-400 ms-2" style="font-size:.72rem;">${p.costo} · ${p.plazo}</span>
                 </label>
             </div>
-            <a href="#" class="btn-req-link ms-auto"><i class="fas fa-info-circle"></i> Ver</a>
+            <button class="btn btn-sm btn-link btn-req-link ms-auto p-0" onclick="abrirInspectorRequisitos('${p.id}'); return false;">
+                <i class="fas fa-info-circle me-1"></i> Ver Requisitos (${p.docs.length})
+            </button>
         </div>`).join('');
 }
 
-function seleccionarTramite(nombre, docs) {
-    tramiteSel = nombre;
-    docsSel    = docs;
-    document.getElementById('input-asunto').value   = nombre;
-    document.getElementById('c-asunto').textContent = nombre;
+function seleccionarTramiteId(idProc) {
+    const p = PROCS.find(x => x.id === idProc);
+    if (!p) return;
+    tramiteSelObj = p;
+    document.getElementById('input-asunto').value   = p.nombre;
+    document.getElementById('c-asunto').textContent = p.nombre;
     actualizarDocsReq();
 }
 
 function actualizarDocsReq() {
     const el = document.getElementById('lista-docs');
-    if (!docsSel.length) return;
-    el.innerHTML = docsSel.map(d =>
-        `<div class="doc-item"><i class="fas fa-circle-dot me-2" style="font-size:.6rem;"></i>${d}</div>`
-    ).join('');
+    const badgeCode = document.getElementById('badge-tupa-code');
+
+    if (!tramiteSelObj) return;
+
+    if (badgeCode) badgeCode.textContent = `CÓDIGO TUPA: ${tramiteSelObj.id}`;
+
+    el.innerHTML = tramiteSelObj.docs.map((d, i) => `
+        <div class="doc-item">
+            <i class="fas fa-file-pdf text-danger me-2 mt-1"></i>
+            <div>
+                <strong style="color:#78350f;">Requisito ${i+1}:</strong> ${d}
+            </div>
+        </div>
+    `).join('');
+}
+
+function onArchivosCargados(evt) {
+    const files = Array.from(evt.target.files);
+    archivosSubidos = files;
+    const lista = document.getElementById('lista-archivos-cargados');
+    if (!files.length) {
+        lista.innerHTML = '';
+        return;
+    }
+    lista.innerHTML = files.map(f => `
+        <div class="d-flex align-items-center justify-content-between p-2 rounded-3 border bg-light mb-2 small">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-file-pdf text-danger me-2 fa-lg"></i>
+                <div>
+                    <div class="fw-700">${f.name}</div>
+                    <div class="text-muted" style="font-size:.68rem;">${(f.size/1024/1024).toFixed(2)} MB</div>
+                </div>
+            </div>
+            <span class="badge bg-success-subtle text-success fw-700">Cargado</span>
+        </div>
+    `).join('');
+    document.getElementById('c-archivos-cnt').innerHTML = `<i class="fas fa-check-circle me-1"></i>${files.length} archivo(s) cargado(s)`;
 }
 
 // ════════════════════════════════════════════════════════════════
-// LOGIN MODAL
+// LOGIN, DEMO USERS Y WIZARD
 // ════════════════════════════════════════════════════════════════
+function poblarModalUsuariosDemo() {
+    const modalList = document.getElementById('lista-usuarios-demo-modal');
+    const fastSelect = document.getElementById('sel-user-demo-fast');
+
+    if (!modalList || !fastSelect) return;
+
+    fastSelect.innerHTML = '<option value="">-- Seleccionar usuario de prueba --</option>' +
+        BASE_USUARIOS.map((u, i) => `<option value="${i}">${u.nombre} (${u.rol.toUpperCase()} - ${u.dep})</option>`).join('');
+
+    modalList.innerHTML = BASE_USUARIOS.map((u, i) => `
+        <div class="user-quick-chip" onclick="seleccionarUsuarioDemoIndex(${i})">
+            <div>
+                <div class="fw-700 text-dark">${u.nombre}</div>
+                <div class="text-muted" style="font-size:.7rem;">${u.email} · ${u.dep}</div>
+            </div>
+            <span class="rb ${u.rol==='estudiante'?'rb-est':u.rol==='docente'?'rb-doc':'rb-adm'}">${u.rol}</span>
+        </div>
+    `).join('');
+}
+
+function abrirModalDemoUsers() {
+    document.getElementById('modal-demo-users').classList.add('show');
+}
+
+function seleccionarUsuarioDemoIndex(idx) {
+    const u = BASE_USUARIOS[idx];
+    if (!u) return;
+    document.getElementById('modal-demo-users').classList.remove('show');
+    document.getElementById('modal-login').classList.remove('show');
+    currentUser = u;
+    aplicarEstadoLogin(u.rol);
+    mostrarToastBienvenida(u.nombre.split(' ')[0]);
+}
+
+function cargarCredencialDemo(val) {
+    if (val === '') return;
+    const u = BASE_USUARIOS[parseInt(val)];
+    if (!u) return;
+    rolSelLogin = u.rol;
+    elegirRolLogin(u.rol);
+    document.getElementById('login-email').value = u.email;
+    document.getElementById('login-pass').value = u.pass;
+}
+
+function loginRapidoDirecto(rol) {
+    const u = BASE_USUARIOS.find(x => x.rol === rol);
+    if (u) {
+        currentUser = u;
+        aplicarEstadoLogin(rol);
+        mostrarToastBienvenida(u.nombre.split(' ')[0]);
+    } else {
+        abrirLogin();
+    }
+}
+
+function aplicarEstadoPublico() {
+    userRole    = 'publico';
+    currentUser = null;
+
+    document.getElementById('nav-btn-login').classList.remove('d-none');
+    document.getElementById('nav-user-info').classList.add('d-none');
+    document.getElementById('nav-admin-item').classList.add('d-none');
+    document.getElementById('tab-btn-admin').classList.add('d-none');
+
+    document.getElementById('card-no-login').classList.remove('d-none');
+    document.getElementById('card-logged-in').classList.add('d-none');
+
+    actualizarStep1();
+    renderProcedimientos();
+}
+
+function aplicarEstadoLogin(rol) {
+    userRole = rol;
+
+    document.getElementById('nav-btn-login').classList.add('d-none');
+    document.getElementById('nav-user-info').classList.remove('d-none');
+
+    const av  = document.getElementById('nav-avatar');
+    const nm  = document.getElementById('nav-nombre');
+    const bg  = document.getElementById('nav-badge');
+    const pri = currentUser ? currentUser.nombre.split(' ')[0] : 'Usuario';
+
+    nm.textContent = pri + ' ' + (currentUser && currentUser.nombre.split(' ')[1] ? currentUser.nombre.split(' ')[1] : '');
+
+    const cfgRol = {
+        estudiante: { cls:'av-estudiante', badge:'<span class="rb rb-est">Estudiante</span>', letra: pri[0] },
+        docente:    { cls:'av-docente',    badge:'<span class="rb rb-doc">Docente</span>',    letra: pri[0] },
+        admin:      { cls:'av-admin',      badge:'<span class="rb rb-adm">Admin</span>',      letra:'A' },
+    };
+    const cfg = cfgRol[rol] || cfgRol.estudiante;
+    av.className = 'user-avatar ' + cfg.cls;
+    av.textContent = cfg.letra;
+    bg.innerHTML   = cfg.badge;
+
+    if (rol === 'admin') {
+        document.getElementById('nav-admin-item').classList.remove('d-none');
+        document.getElementById('tab-btn-admin').classList.remove('d-none');
+    } else {
+        document.getElementById('nav-admin-item').classList.add('d-none');
+        document.getElementById('tab-btn-admin').classList.add('d-none');
+    }
+
+    document.getElementById('card-no-login').classList.add('d-none');
+    document.getElementById('card-logged-in').classList.remove('d-none');
+
+    const badgeDash = {
+        estudiante:'<span class="rb rb-est">Estudiante UNSAAC</span>',
+        docente:   '<span class="rb rb-doc">Docente / Personal</span>',
+        admin:     '<span class="rb rb-adm">Administrador de Dependencia</span>',
+    };
+    document.getElementById('dash-role-badge').innerHTML = badgeDash[rol] || '';
+
+    actualizarMisTramites();
+    actualizarNotificacionesUser();
+    actualizarStep1();
+    renderProcedimientos();
+}
+
+function actualizarMisTramites() {
+    const contenedor = document.getElementById('mis-tramites-lista');
+    if (!contenedor || !currentUser) return;
+
+    const todos = obtenerExpedientesDB();
+    const misExp = todos.filter(e => e.correo.toLowerCase() === currentUser.email.toLowerCase() || e.solicitante.toLowerCase() === currentUser.nombre.toLowerCase());
+
+    if (!misExp.length) {
+        contenedor.innerHTML = '<div class="text-center text-muted py-3 small"><i class="fas fa-folder-open mb-2 opacity-50"></i><br>No tienes trámites registrados aún.</div>';
+        return;
+    }
+
+    contenedor.innerHTML = misExp.map(e => `
+        <div class="tr-card" onclick="cargarSeguimientoCodigo('${e.id}')" style="cursor:pointer;">
+            <div class="d-flex justify-content-between align-items-start">
+                <div>
+                    <div class="fw-700 small text-dark">${e.nombre}</div>
+                    <div class="text-muted" style="font-size:.7rem;">${e.id} · ${e.fecha}</div>
+                </div>
+                <span class="badge-status ${e.stClass}" style="font-size:.68rem;">${e.estado}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
+function cargarSeguimientoCodigo(cod) {
+    document.getElementById('input-codigo').value = cod;
+    mostrarSeguimiento();
+    window.scrollTo({ top: document.querySelector('.dashboard-section').offsetTop - 80, behavior:'smooth' });
+}
+
+function actualizarNotificacionesUser() {
+    const contenedor = document.getElementById('lista-notificaciones');
+    const badge = document.getElementById('notif-count-badge');
+    if (!contenedor || !currentUser) return;
+
+    const todos = obtenerExpedientesDB();
+    const misExp = todos.filter(e => e.correo.toLowerCase() === currentUser.email.toLowerCase());
+
+    if (!misExp.length) {
+        badge.textContent = '0';
+        contenedor.innerHTML = '<div class="text-muted small py-2">Sin notificaciones recientes.</div>';
+        return;
+    }
+
+    badge.textContent = misExp.length;
+    contenedor.innerHTML = misExp.slice(0, 3).map(e => {
+        let borderCls = '#bfdbfe'; let bgCls = '#eff6ff'; let icon = 'fa-clock'; let iconColor = '#3b82f6';
+        if (e.estado === 'Completado') { borderCls = '#bbf7d0'; bgCls = '#f0fdf4'; icon = 'fa-check-circle'; iconColor = '#10b981'; }
+        else if (e.estado === 'Observado') { borderCls = '#fed7aa'; bgCls = '#fff7ed'; icon = 'fa-exclamation-circle'; iconColor = '#f59e0b'; }
+
+        return `
+            <div class="d-flex gap-2 align-items-start p-2 rounded-3 mb-2" style="background:${bgCls};border:1px solid ${borderCls};">
+                <i class="fas ${icon} mt-1" style="color:${iconColor};font-size:.75rem;"></i>
+                <div>
+                    <div class="fw-700" style="font-size:.74rem;">${e.id} - ${e.estado}</div>
+                    <div class="text-muted" style="font-size:.68rem;">${e.nombre} · ${e.dep}</div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function actualizarStep1() {
+    const sel    = document.getElementById('tipo-doc');
+    const alerta = document.getElementById('alerta-step1');
+    const colCod = document.getElementById('col-codigo');
+    const hlp    = document.getElementById('tipo-helper');
+    const lblDep = document.getElementById('lbl-dep');
+
+    sel.innerHTML = '';
+    sel.disabled  = false;
+
+    if (userRole === 'publico') {
+        sel.innerHTML = '<option value="publico">Público en General</option>';
+        colCod.style.display = 'none';
+        lblDep.textContent   = 'Institución / Procedencia (opcional)';
+        alerta.className     = 'ac-pub mb-4';
+        alerta.innerHTML     = `<i class="fas fa-globe me-2"></i>
+            Estás accediendo como <strong>Público en General</strong>. Solo verás trámites de libre acceso.
+            <a href="#" class="fw-700 ms-2" style="color:#15803d;" onclick="abrirLogin(); return false;">
+                Inicia sesión para más trámites →
+            </a>`;
+        hlp.textContent = 'No necesitas cuenta UNSAAC para trámites de público en general.';
+
+    } else if (userRole === 'estudiante') {
+        sel.innerHTML = '<option value="estudiante">Estudiante UNSAAC</option>';
+        sel.disabled  = true;
+        colCod.style.display = '';
+        lblDep.textContent   = 'Facultad';
+        alerta.className     = 'ac-info mb-4';
+        alerta.innerHTML     = `<i class="fas fa-user-graduate me-2"></i>
+            Sesión activa como <strong>Estudiante UNSAAC</strong>. Se pre-cargan tus datos automáticamente.`;
+        hlp.textContent = 'Tipo de solicitante verificado con tu cuenta.';
+        if (currentUser) {
+            document.getElementById('input-nombres').value     = currentUser.nombre;
+            document.getElementById('input-dni').value         = currentUser.dni;
+            document.getElementById('input-correo').value      = currentUser.email;
+            document.getElementById('input-codigo-univ').value = currentUser.codigo || '182930';
+        }
+
+    } else if (userRole === 'docente') {
+        sel.innerHTML = '<option value="docente">Docente / Personal Administrativo</option>';
+        sel.disabled  = true;
+        colCod.style.display = 'none';
+        lblDep.textContent   = 'Dependencia / Área';
+        alerta.className     = 'ac-info mb-4';
+        alerta.innerHTML     = `<i class="fas fa-chalkboard-teacher me-2"></i>
+            Sesión activa como <strong>Docente / Personal UNSAAC</strong>.`;
+        hlp.textContent = 'Tipo de solicitante verificado con tu cuenta.';
+        if (currentUser) {
+            document.getElementById('input-nombres').value = currentUser.nombre;
+            document.getElementById('input-dni').value     = currentUser.dni;
+            document.getElementById('input-correo').value  = currentUser.email;
+        }
+
+    } else if (userRole === 'admin') {
+        sel.innerHTML = '<option value="admin">Administrador de Dependencia</option>';
+        sel.disabled  = true;
+        colCod.style.display = 'none';
+        alerta.className     = 'ac-adm mb-4';
+        alerta.innerHTML     = `<i class="fas fa-shield-alt me-2"></i>
+            Sesión activa como <strong>Administrador (${currentUser?currentUser.dep:''})</strong>.
+            <a href="#" class="fw-700 ms-2" style="color:#7c3aed;" onclick="showSection('admin'); return false;">
+                Ir al Panel de Administración →
+            </a>`;
+        hlp.textContent = '';
+    }
+}
+
 function abrirLogin() {
     document.getElementById('modal-login').classList.add('show');
     elegirRolLogin('estudiante');
@@ -1266,34 +1640,47 @@ function elegirRolLogin(rol) {
     rolSelLogin = rol;
     document.querySelectorAll('.login-opt').forEach(e => e.classList.remove('selected'));
     document.getElementById('opt-' + rol).classList.add('selected');
-    const emails = { estudiante:'a.garcia@unsaac.edu.pe', docente:'l.monzon@unsaac.edu.pe', admin:'admin.sg@unsaac.edu.pe' };
-    document.getElementById('login-email').value = emails[rol] || '';
-    document.getElementById('login-pass').value  = '12345678';
+    const userFound = BASE_USUARIOS.find(u => u.rol === rol);
+    if (userFound) {
+        document.getElementById('login-email').value = userFound.email;
+        document.getElementById('login-pass').value = userFound.pass;
+    }
 }
 
 function realizarLogin() {
-    document.getElementById('modal-login').classList.remove('show');
-    aplicarEstadoLogin(rolSelLogin);
+    const email = document.getElementById('login-email').value.trim();
+    const u = BASE_USUARIOS.find(x => x.email.toLowerCase() === email.toLowerCase());
 
-    // Toast bienvenida
-    const nombre = currentUser?.nombre.split(' ')[0] || '';
+    document.getElementById('modal-login').classList.remove('show');
+
+    if (u) {
+        currentUser = u;
+        aplicarEstadoLogin(u.rol);
+        mostrarToastBienvenida(u.nombre.split(' ')[0]);
+    } else {
+        currentUser = { email: email, nombre: email.split('@')[0], rol: rolSelLogin, dni:'00000000', dep:'UNSAAC' };
+        aplicarEstadoLogin(rolSelLogin);
+        mostrarToastBienvenida(currentUser.nombre);
+    }
+}
+
+function mostrarToastBienvenida(nombre) {
     const t = document.createElement('div');
     t.className = 'float-alert';
     t.style.cssText = 'position:fixed;top:80px;right:20px;z-index:9999;background:#fff;border-radius:16px;padding:1rem 1.5rem;box-shadow:0 20px 60px rgba(0,0,0,.12);border-left:4px solid #10b981;min-width:260px;';
     t.innerHTML = `<div class="fw-700 small" style="color:#10b981;"><i class="fas fa-check-circle me-2"></i>¡Bienvenido, ${nombre}!</div>
-                   <div class="small text-muted mt-1">Sesión iniciada. Solo verás trámites de tu categoría.</div>`;
+                   <div class="small text-muted mt-1">Sesión activa en Plataforma PLADDES UNSAAC.</div>`;
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 3500);
 }
 
 function cerrarSesion() {
-    if (!confirm('¿Deseas cerrar sesión?')) return;
-    // Limpiar campos
+    if (!confirm('¿Deseas cerrar la sesión actual?')) return;
     ['input-nombres','input-dni','input-correo','input-tel','input-codigo-univ'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.value = '';
     });
-    tramiteSel = ''; docsSel = [];
+    tramiteSelObj = null;
     aplicarEstadoPublico();
     showSection('catalogo');
 }
@@ -1304,31 +1691,23 @@ function iniciarComoPublico() {
     goToStep(1);
 }
 
-// ════════════════════════════════════════════════════════════════
-// TABS
-// ════════════════════════════════════════════════════════════════
 function showSection(nombre) {
-    // Admin no debe crear trámites — redirigir al panel
     if (nombre === 'nuevo' && userRole === 'admin') {
         nombre = 'admin';
-        const t = document.createElement('div');
-        t.style.cssText = 'position:fixed;top:80px;right:20px;z-index:9999;background:#fff;border-radius:16px;padding:1rem 1.5rem;box-shadow:0 20px 60px rgba(0,0,0,.12);border-left:4px solid #7c3aed;min-width:280px;';
-        t.innerHTML = `<div class="fw-700 small" style="color:#7c3aed;"><i class="fas fa-shield-alt me-2"></i>Acceso restringido</div>
-                       <div class="small text-muted mt-1">Los administradores gestionan trámites desde el Panel Admin.</div>`;
-        document.body.appendChild(t);
-        setTimeout(() => t.remove(), 3500);
+        mostrarAlertaFlotante('Los administradores gestionan los expedientes desde el Panel Admin.');
     }
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + nombre).classList.add('active');
     const btn = document.getElementById('tab-btn-' + nombre);
     if (btn) btn.classList.add('active');
+
+    if (nombre === 'admin') {
+        renderBandejaAdmin();
+    }
     if (nombre === 'nuevo') renderProcedimientos();
 }
 
-// ════════════════════════════════════════════════════════════════
-// WIZARD STEPS
-// ════════════════════════════════════════════════════════════════
 function goToStep(n) {
     for (let i = 1; i <= 4; i++) {
         document.getElementById(`step-${i}-content`).style.display = 'none';
@@ -1348,8 +1727,8 @@ function goToStep(n) {
         document.getElementById('c-nombres').textContent = document.getElementById('input-nombres').value || '—';
         document.getElementById('c-dni').textContent     = document.getElementById('input-dni').value     || '—';
         document.getElementById('c-correo').textContent  = document.getElementById('input-correo').value  || '—';
-        document.getElementById('c-pago').textContent    = document.getElementById('input-pago').value    || '—';
-        document.getElementById('c-asunto').textContent  = tramiteSel || '—';
+        document.getElementById('c-pago').textContent    = document.getElementById('input-pago').value    || 'Sin clave (Gratuito)';
+        document.getElementById('c-asunto').textContent  = tramiteSelObj ? tramiteSelObj.nombre : 'Trámites varios';
         document.getElementById('toast-correo').textContent = document.getElementById('input-correo').value || 'tu correo registrado';
     }
     window.scrollTo({ top: document.getElementById('tab-nuevo').offsetTop - 120, behavior:'smooth' });
@@ -1357,24 +1736,124 @@ function goToStep(n) {
 
 function onCambiarTipo() { renderProcedimientos(); }
 
-// ════════════════════════════════════════════════════════════════
-// ENVIAR SOLICITUD
-// ════════════════════════════════════════════════════════════════
 function enviarSolicitud() {
     if (!document.getElementById('declaracion').checked) {
-        alert('Debe aceptar la declaración jurada para continuar.');
+        alert('Debes aceptar la declaración jurada antes de enviar tu solicitud.');
         return;
     }
-    const cod = Math.floor(48000 + Math.random() * 2000);
-    document.getElementById('cod-gen').textContent = cod;
+
+    const dniVal = document.getElementById('input-dni').value.trim();
+    const nomVal = document.getElementById('input-nombres').value.trim();
+    const mailVal = document.getElementById('input-correo').value.trim();
+    const pagoVal = document.getElementById('input-pago').value.trim() || '2026-0099812';
+    const depVal  = document.getElementById('sel-dep').value || 'Secretaría General';
+
+    if (!nomVal || !dniVal || !mailVal) {
+        alert('Por favor completa todos los campos requeridos (*)');
+        goToStep(1);
+        return;
+    }
+
+    const codNum = Math.floor(48000 + Math.random() * 2000);
+    const nuevoCodigo = `TR-2026-${codNum}`;
+
+    const hoy = new Date();
+    const fechaStr = hoy.toLocaleDateString('es-PE', {day:'2-digit',month:'2-digit',year:'numeric'});
+
+    const nuevoExp = {
+        id: nuevoCodigo,
+        solicitante: nomVal,
+        dni: dniVal,
+        correo: mailVal,
+        rol: userRole,
+        nombre: tramiteSelObj ? tramiteSelObj.nombre : 'Solicitud de Trámite TUPA',
+        fecha: fechaStr,
+        estado: 'Pendiente',
+        stClass: 'st-pend',
+        dep: depVal,
+        plazo: tramiteSelObj ? tramiteSelObj.plazo : '15 días hábiles',
+        pago: pagoVal,
+        obs: document.getElementById('textarea-obs').value || 'Solicitud registrada correctamente.'
+    };
+
+    const exps = obtenerExpedientesDB();
+    exps.unshift(nuevoExp);
+    guardarExpedientesDB(exps);
+
+    document.getElementById('cod-gen').textContent = codNum;
     const toast = document.getElementById('toast-confirm');
     toast.style.display = 'block';
     setTimeout(() => { toast.style.display = 'none'; }, 7000);
+
+    actualizarMisTramites();
+    actualizarNotificacionesUser();
 }
 
-// ════════════════════════════════════════════════════════════════
-// SUB-TABS DEL PANEL ADMIN
-// ════════════════════════════════════════════════════════════════
+function mostrarSeguimiento() {
+    const cod = document.getElementById('input-codigo').value.trim().toUpperCase();
+    const result = document.getElementById('timeline-result');
+    if (!cod) { alert('Ingresa un código de seguimiento'); return; }
+
+    const exps = obtenerExpedientesDB();
+    const exp = exps.find(x => x.id.toUpperCase() === cod);
+
+    if (!exp) {
+        result.style.display = 'block';
+        result.innerHTML = `
+            <hr class="my-3">
+            <div class="text-center py-3">
+                <i class="fas fa-search fa-2x text-muted opacity-50 mb-2"></i>
+                <div class="fw-700 small text-muted">Expediente no encontrado</div>
+                <div class="text-muted mt-1" style="font-size:.75rem;">
+                    Verifica el código ingresado.<br>
+                    Prueba con: <code>TR-2026-48945</code>, <code>TR-2026-45231</code> o <code>TR-2026-46120</code>
+                </div>
+            </div>`;
+        return;
+    }
+
+    const esComp = exp.estado === 'Completado';
+    const esObs  = exp.estado === 'Observado';
+    const esProc = exp.estado === 'En Revisión';
+
+    result.style.display = 'block';
+    result.innerHTML = `
+        <hr class="my-3">
+        <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+            <div>
+                <div class="fw-800 small">${exp.nombre}</div>
+                <div class="text-muted" style="font-size:.72rem;">Exp. ${exp.id} · Interesado: ${exp.solicitante}</div>
+            </div>
+            <span class="badge-status ${exp.stClass}" style="font-size:.72rem;">${exp.estado}</span>
+        </div>
+        <div class="p-2 rounded-3 bg-light border mb-3 small">
+            <div class="fw-700 text-muted" style="font-size:.7rem;">OBSERVACIÓN / DETALLE:</div>
+            <div style="font-size:.75rem;">${exp.obs}</div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="tl-dot done"></div>
+                <div class="tl-lbl">Solicitud registrada</div>
+                <div class="tl-sub">${exp.fecha} · Recepcionado</div>
+            </div>
+            <div class="timeline-item">
+                <div class="tl-dot ${esComp || esProc || esObs ? 'done' : 'active'}"></div>
+                <div class="tl-lbl">Derivado a dependencia</div>
+                <div class="tl-sub">${exp.dep}</div>
+            </div>
+            <div class="timeline-item">
+                <div class="tl-dot ${esComp ? 'done' : esObs ? 'active' : esProc ? 'active' : 'pending'}"></div>
+                <div class="tl-lbl">${esObs ? 'Observado — Requiere subsanación' : 'Revisión técnica de documentos'}</div>
+                <div class="tl-sub">${esComp ? 'Aprobado' : 'Plazo: ' + exp.plazo}</div>
+            </div>
+            <div class="timeline-item">
+                <div class="tl-dot ${esComp ? 'done' : 'pending'}"></div>
+                <div class="tl-lbl">Resolución / Emisión</div>
+                <div class="tl-sub">${esComp ? 'Aprobado y emitido ✓' : 'Pendiente'}</div>
+            </div>
+        </div>`;
+}
+
 function showAdminTab(nombre) {
     ['bandeja','reportes'].forEach(t => {
         document.getElementById('admin-tab-' + t).classList.remove('active');
@@ -1385,9 +1864,88 @@ function showAdminTab(nombre) {
     if (nombre === 'reportes') renderCharts(datosReporte['mayo']);
 }
 
-// ════════════════════════════════════════════════════════════════
-// [OBJ 7] REPORTES Y ESTADÍSTICAS
-// ════════════════════════════════════════════════════════════════
+function renderBandejaAdmin() {
+    const tbody = document.getElementById('tabla-bandeja-body');
+    const filtroDep = document.getElementById('admin-filtro-dep')?.value || 'todas';
+    const filtroEst = document.getElementById('admin-filtro-estado')?.value || 'todos';
+
+    if (!tbody) return;
+
+    let exps = obtenerExpedientesDB();
+
+    if (filtroDep !== 'todas') exps = exps.filter(e => e.dep.toLowerCase().includes(filtroDep.toLowerCase()));
+    if (filtroEst !== 'todos') exps = exps.filter(e => e.estado === filtroEst);
+
+    const all = obtenerExpedientesDB();
+    document.getElementById('cnt-pend').textContent = all.filter(e => e.estado === 'Pendiente').length;
+    document.getElementById('cnt-proc').textContent = all.filter(e => e.estado === 'En Revisión').length;
+    document.getElementById('cnt-comp').textContent = all.filter(e => e.estado === 'Completado').length;
+    document.getElementById('cnt-obs').textContent  = all.filter(e => e.estado === 'Observado').length;
+
+    if (!exps.length) {
+        tbody.innerHTML = '<tr><td colspan="8" class="text-center py-4 text-muted">No se encontraron expedientes en este filtro.</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = exps.map(e => `
+        <tr>
+            <td class="fw-700">${e.id}</td>
+            <td>${e.solicitante}<br><span class="text-muted" style="font-size:.7rem;">DNI: ${e.dni}</span></td>
+            <td><span class="rb ${e.rol==='estudiante'?'rb-est':e.rol==='docente'?'rb-doc':'rb-pub'}">${e.rol}</span></td>
+            <td>${e.nombre}</td>
+            <td><span class="badge bg-light text-dark fw-600">${e.dep}</span></td>
+            <td>${e.fecha}</td>
+            <td><span class="badge-status ${e.stClass}">${e.estado}</span></td>
+            <td>
+                <button class="btn btn-sm btn-success fw-700 me-1 mb-1" style="border-radius:8px;font-size:.72rem;" onclick="cambiarEstadoExpediente('${e.id}','Completado')">Aprobar</button>
+                <button class="btn btn-sm btn-warning fw-700 me-1 mb-1" style="border-radius:8px;font-size:.72rem;" onclick="observarExpedientePrompt('${e.id}')">Observar</button>
+                <button class="btn btn-sm btn-outline-secondary fw-700 mb-1" style="border-radius:8px;font-size:.72rem;" onclick="derivarExpedientePrompt('${e.id}')">Derivar</button>
+            </td>
+        </tr>
+    `).join('');
+}
+
+function cambiarEstadoExpediente(id, nuevoEstado, motivo = '') {
+    const exps = obtenerExpedientesDB();
+    const exp = exps.find(e => e.id === id);
+    if (!exp) return;
+
+    exp.estado = nuevoEstado;
+    if (nuevoEstado === 'Completado') exp.stClass = 'st-comp';
+    if (nuevoEstado === 'Observado')  exp.stClass = 'st-obs';
+    if (nuevoEstado === 'En Revisión') exp.stClass = 'st-proc';
+
+    if (motivo) exp.obs = motivo;
+    else if (nuevoEstado === 'Completado') exp.obs = 'Aprobado y finalizado por la dependencia.';
+
+    guardarExpedientesDB(exps);
+    renderBandejaAdmin();
+
+    mostrarToastBienvenida(`Expediente ${id} actualizado a ${nuevoEstado}`);
+}
+
+function observarExpedientePrompt(id) {
+    const motivo = prompt('Ingresa el motivo de observación para la subsanación del usuario:', 'Falta adjuntar copia legible de DNI / voucher');
+    if (motivo) cambiarEstadoExpediente(id, 'Observado', motivo);
+}
+
+function derivarExpedientePrompt(id) {
+    const nuevaDep = prompt('Ingresa la nueva dependencia a derivar (VRAC, DIGA, UTH, Secretaría General):', 'VRAC');
+    if (nuevaDep) {
+        const exps = obtenerExpedientesDB();
+        const exp = exps.find(e => e.id === id);
+        if (exp) {
+            exp.dep = nuevaDep;
+            exp.estado = 'En Revisión';
+            exp.stClass = 'st-proc';
+            exp.obs = `Derivado a ${nuevaDep} para continuación de trámite.`;
+            guardarExpedientesDB(exps);
+            renderBandejaAdmin();
+            mostrarToastBienvenida(`Expediente ${id} derivado a ${nuevaDep}`);
+        }
+    }
+}
+
 const datosReporte = {
     mayo:  { total:58, comp:38, pend:12, obs:3, proc:5, plazo:8.3,
              tipos:[{n:'Grados y Títulos',v:18,c:'#6f1521'},{n:'Certificados',v:22,c:'#0284c7'},{n:'Documentos Varios',v:10,c:'#db2777'},{n:'Trámites Docentes',v:5,c:'#ca8a04'},{n:'Público General',v:3,c:'#16a34a'}],
@@ -1405,14 +1963,14 @@ function actualizarReportes(periodo) {
 }
 
 function renderCharts(d) {
-    // KPIs
-    document.getElementById('kpi-total').textContent = d.total;
-    document.getElementById('kpi-comp').textContent  = d.comp;
-    document.getElementById('kpi-pend').textContent  = d.pend;
-    document.getElementById('kpi-plazo').textContent = d.plazo;
-    document.getElementById('dona-centro-num').textContent = d.total;
+    const exps = obtenerExpedientesDB();
 
-    // Barras por tipo de trámite
+    document.getElementById('kpi-total').textContent = exps.length;
+    document.getElementById('kpi-comp').textContent  = exps.filter(e => e.estado === 'Completado').length;
+    document.getElementById('kpi-pend').textContent  = exps.filter(e => e.estado === 'Pendiente').length;
+    document.getElementById('kpi-plazo').textContent = d.plazo;
+    document.getElementById('dona-centro-num').textContent = exps.length;
+
     const maxTipo = Math.max(...d.tipos.map(t => t.v));
     document.getElementById('chart-tipo').innerHTML = d.tipos.map(t => `
         <div>
@@ -1425,7 +1983,13 @@ function renderCharts(d) {
             </div>
         </div>`).join('');
 
-    // Barras por dependencia
+    document.getElementById('chart-estado-leyenda').innerHTML = `
+        <div class="d-flex align-items-center justify-content-between"><div class="d-flex align-items-center gap-2"><div style="width:12px;height:12px;border-radius:3px;background:#10b981;"></div><span class="small fw-600">Completados</span></div><span class="fw-800 small">${exps.filter(e=>e.estado==='Completado').length}</span></div>
+        <div class="d-flex align-items-center justify-content-between"><div class="d-flex align-items-center gap-2"><div style="width:12px;height:12px;border-radius:3px;background:#fbbf24;"></div><span class="small fw-600">Pendientes</span></div><span class="fw-800 small">${exps.filter(e=>e.estado==='Pendiente').length}</span></div>
+        <div class="d-flex align-items-center justify-content-between"><div class="d-flex align-items-center gap-2"><div style="width:12px;height:12px;border-radius:3px;background:#3b82f6;"></div><span class="small fw-600">En Revisión</span></div><span class="fw-800 small">${exps.filter(e=>e.estado==='En Revisión').length}</span></div>
+        <div class="d-flex align-items-center justify-content-between"><div class="d-flex align-items-center gap-2"><div style="width:12px;height:12px;border-radius:3px;background:#f87171;"></div><span class="small fw-600">Observados</span></div><span class="fw-800 small">${exps.filter(e=>e.estado==='Observado').length}</span></div>
+    `;
+
     const maxDep = Math.max(...d.deps.map(dep => dep.v));
     document.getElementById('chart-dep').innerHTML = d.deps.map(dep => `
         <div class="col-6 col-md-4 col-lg-2">
@@ -1443,77 +2007,9 @@ function simularExporte(tipo) {
     const t = document.createElement('div');
     t.style.cssText = 'position:fixed;top:80px;right:20px;z-index:9999;background:#fff;border-radius:16px;padding:1rem 1.5rem;box-shadow:0 20px 60px rgba(0,0,0,.12);border-left:4px solid #10b981;min-width:280px;';
     t.innerHTML = `<div class="fw-700 small" style="color:#10b981;"><i class="fas fa-check-circle me-2"></i>Exportando reporte en ${tipo}...</div>
-                   <div class="small text-muted mt-1">El archivo será descargado en instantes.</div>`;
+                   <div class="small text-muted mt-1">El reporte ha sido generado y descargado con éxito.</div>`;
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 3000);
-}
-// ════════════════════════════════════════════════════════════════
-const EXPEDIENTES_DEMO = {
-    'TR-2026-48945': { nombre:'Expedición de Grado de Bachiller', fecha:'20/05/2026', estado:'En Revisión', stClass:'st-proc', dep:'Secretaría General', plazo:'15 días hábiles' },
-    'TR-2026-45231': { nombre:'Certificado de Estudios Semestral', fecha:'05/04/2026', estado:'Completado',  stClass:'st-comp', dep:'Facultad de Ingeniería', plazo:'—' },
-    'TR-2026-46120': { nombre:'Duplicado de Carné Universitario',  fecha:'10/05/2026', estado:'Observado',   stClass:'st-obs',  dep:'DIGA', plazo:'5 días hábiles' },
-};
-
-function mostrarSeguimiento() {
-    const cod = document.getElementById('input-codigo').value.trim().toUpperCase();
-    const result = document.getElementById('timeline-result');
-    if (!cod) { alert('Ingresa un código de seguimiento'); return; }
-
-    const exp = EXPEDIENTES_DEMO[cod];
-    if (!exp) {
-        result.style.display = 'block';
-        result.innerHTML = `
-            <hr class="my-3">
-            <div class="text-center py-3">
-                <i class="fas fa-search fa-2x text-muted opacity-50 mb-2"></i>
-                <div class="fw-700 small text-muted">Expediente no encontrado</div>
-                <div class="text-muted mt-1" style="font-size:.75rem;">
-                    Verifica que el código sea correcto. Prueba con:<br>
-                    <code>TR-2026-48945</code>, <code>TR-2026-45231</code> o <code>TR-2026-46120</code>
-                </div>
-            </div>`;
-        return;
-    }
-
-    const esComp = exp.stClass === 'st-comp';
-    const esObs  = exp.stClass === 'st-obs';
-    result.style.display = 'block';
-    result.innerHTML = `
-        <hr class="my-3">
-        <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
-            <div>
-                <div class="fw-800 small">${exp.nombre}</div>
-                <div class="text-muted" style="font-size:.72rem;">Exp. ${cod} · Ingresado ${exp.fecha}</div>
-            </div>
-            <span class="badge-status ${exp.stClass}" style="font-size:.72rem;">${exp.estado}</span>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="tl-dot done"></div>
-                <div class="tl-lbl">Solicitud registrada</div>
-                <div class="tl-sub">${exp.fecha} · Unidad de Trámite Documentario</div>
-            </div>
-            <div class="timeline-item">
-                <div class="tl-dot done"></div>
-                <div class="tl-lbl">Derivado a dependencia</div>
-                <div class="tl-sub">${exp.dep}</div>
-            </div>
-            <div class="timeline-item">
-                <div class="tl-dot ${esComp ? 'done' : esObs ? 'done' : 'active'}"></div>
-                <div class="tl-lbl">${esObs ? 'Observado — requiere subsanación' : 'En revisión de documentos'}</div>
-                <div class="tl-sub">${esComp ? 'Completado' : 'Plazo: ' + exp.plazo}</div>
-            </div>
-            <div class="timeline-item">
-                <div class="tl-dot ${esComp ? 'done' : 'pending'}"></div>
-                <div class="tl-lbl">Resolución / Aprobación</div>
-                <div class="tl-sub">${esComp ? 'Aprobado ✓' : 'Pendiente'}</div>
-            </div>
-            <div class="timeline-item">
-                <div class="tl-dot ${esComp ? 'done' : 'pending'}"></div>
-                <div class="tl-lbl">Notificación al interesado</div>
-                <div class="tl-sub">${esComp ? 'Notificado por correo' : 'Pendiente'}</div>
-            </div>
-        </div>`;
 }
 </script>
 </body>
