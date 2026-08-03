@@ -10,6 +10,7 @@ const cors = require('cors');
 const { Pool } = require('pg');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -19,7 +20,12 @@ const JWT_SECRET = process.env.JWT_SECRET || 'unsaac_pladdes_secret_key_2026';
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('./')); // Servir el frontend prototipo_pladdes_v5.html
+app.use(express.static(path.join(__dirname)));
+
+// Ruta raíz → sirve el prototipo HTML directamente
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'prototipo_pladdes_v5.html'));
+});
 
 // Configuración de conexión a PostgreSQL
 const pool = new Pool({
